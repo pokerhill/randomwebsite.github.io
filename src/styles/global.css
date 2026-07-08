@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-height: 5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+  }
+
+  /* Display register: Archivo expanded-uppercase. Hierarchy comes from scale,
+     never color. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold;
+  }
+
+  /* Visible keyboard focus for any interactive element that doesn't define
+     its own focus style (form inputs supply their own border+shadow focus). */
+  :where(a, button, select, textarea, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 2px solid #4C9DF0;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Expanded uppercase display type — the aerospace-industrial register. */
+  .type-display {
+    @apply font-heading uppercase;
+    font-stretch: 122%;
+  }
+
+  /* Mono micro-label: every eyebrow, spec value, timestamp, caption. */
+  .type-mono-label {
+    @apply font-mono uppercase text-micro tracking-[0.14em];
+  }
+
+  /* 1px hairline rules. */
+  .hairline {
+    @apply border-white/[0.08];
+  }
+  .hairline-active {
+    @apply border-white/[0.16];
+  }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-radar-sweep,
+  .animate-cursor-blink {
+    animation: none !important;
+  }
+}
