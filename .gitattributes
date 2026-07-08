@@ -1,2 +1,4 @@
-*.mp4 filter=lfs diff=lfs merge=lfs -text
-*.gif filter=lfs diff=lfs merge=lfs -text
+# This file is copied into build/ and becomes the gh-pages branch's .gitattributes.
+# The deploy branch is a static artifact served by GitHub Pages, which cannot
+# resolve Git LFS pointers — so disable LFS filtering for all published assets.
+* -filter -diff -merge
