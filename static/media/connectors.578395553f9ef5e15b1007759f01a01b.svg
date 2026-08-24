@@ -1,0 +1,21 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="171.187" height="57.1641" viewBox="0 0 171.187 57.1641" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 21">
+<path id="Subtract" d="M57.1641 28.582L28.582 57.1641L0 28.582L28.582 0L57.1641 28.582ZM13.5742 28.582L28.582 43.5898L43.5898 28.582L28.582 13.5742L13.5742 28.582Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<foreignObject x="15.5569" y="-41.7567" width="140.677" height="140.677"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20.88px);clip-path:url(#bgblur_0_0_40_clip_path);height:100%;width:100%"></div></foreignObject><g id="Rectangle 49" opacity="0.99" data-figma-bg-blur-radius="41.7567">
+<rect x="85.8955" width="40.4209" height="40.4209" transform="rotate(45 85.8955 0)" fill="url(#paint0_linear_0_40)"/>
+<rect x="85.8955" y="0.624238" width="39.5381" height="39.5381" transform="rotate(45 85.8955 0.624238)" stroke="url(#paint1_linear_0_40)" stroke-opacity="0.33" stroke-width="0.882806"/>
+</g>
+<path id="Subtract_2" d="M171.187 28.582L142.605 57.1641L114.023 28.582L142.605 0L171.187 28.582Z" fill="white" style="fill:white;fill-opacity:1;"/>
+</g>
+<defs>
+<clipPath id="bgblur_0_0_40_clip_path" transform="translate(-15.5569 41.7567)"><rect x="85.8955" width="40.4209" height="40.4209" transform="rotate(45 85.8955 0)"/>
+</clipPath><linearGradient id="paint0_linear_0_40" x1="85.8955" y1="20.2104" x2="126.316" y2="20.2104" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D9D9D9" stop-opacity="0.5" style="stop-color:#D9D9D9;stop-color:color(display-p3 0.8510 0.8510 0.8510);stop-opacity:0.5;"/>
+<stop offset="1" stop-color="#737373" stop-opacity="0" style="stop-color:none;stop-opacity:0;"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_40" x1="106.106" y1="0" x2="106.106" y2="40.4209" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D9D9D9" style="stop-color:#D9D9D9;stop-color:color(display-p3 0.8510 0.8510 0.8510);stop-opacity:1;"/>
+<stop offset="1" stop-color="#161616" style="stop-color:#161616;stop-color:color(display-p3 0.0863 0.0863 0.0863);stop-opacity:1;"/>
+</linearGradient>
+</defs>
+</svg>
