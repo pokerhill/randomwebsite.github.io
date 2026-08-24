@@ -2,7 +2,8 @@ import AstroBotImg from '../assets/images/astrobot.png';
 import OraAstrosferaImg from '../assets/images/arms/ora-astrosfera.png';
 import OraMiniImg from '../assets/images/arms/ora-mini.png';
 import OraGigaImg from '../assets/images/arms/ora-giga.png';
-import NavIQImg from '../assets/images/point_control.gif';
+import PointControlImg from '../assets/images/point_control.gif';
+import MonteCarloGif from '../assets/video/monte_carlo_satellite_control.gif';
 
 // Import Videos
 import Ar3CatchVideo from '../assets/video/ar3_catch.mp4';
@@ -184,7 +185,10 @@ export const softwareProducts = [
         highlights: ["Autonomous GNC", "Lyapunov-verified", "Monte Carlo tested"],
         tagline: "Our autonomous guidance and control software. Takes NavIQ's state estimate and plans the capture maneuver.",
         description: "ASTRA-P is our guidance and control layer. Given a state estimate from NavIQ, it plans and executes precise approach and capture maneuvers against unprepared satellites and debris. Stability is mathematically verified via Lyapunov analysis and validated across thousands of randomized Monte Carlo scenarios. Hosted natively on ORBtos.",
-        image: NavIQImg,
+        image: PointControlImg,
+        demos: [
+            { image: MonteCarloGif, caption: "Monte Carlo control runs — randomized capture scenarios validating controller stability." }
+        ],
         relatedProducts: [
             { id: 'naviq', label: 'Pairs with NavIQ', context: 'NavIQ provides closed-loop state estimation for the controller.' },
             { id: 'robotic-arms', label: 'Drives the arm family', context: 'ORA-native arm control for end-to-end autonomous manipulation.' },
