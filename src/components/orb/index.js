@@ -6,4 +6,3 @@ export { default as OrbNav } from './OrbNav';
 export { default as OrbFooter } from './OrbFooter';
 export { default as OrbCtaBand } from './OrbCtaBand';
 export { default as DividerGlow } from './DividerGlow';
-export { default as Dither } from './Dither';

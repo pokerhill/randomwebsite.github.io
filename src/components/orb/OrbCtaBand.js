@@ -1,7 +1,6 @@
 import React from 'react';
 import OrbButton from './OrbButton';
 import { CTA } from '../../data/brand';
-import Dither from './Dither';
 
 // Closing band — Figma 135:340 (Frame 24), 1436x1328. Every offset below is the
 // node's own coordinate as a percentage of that frame:
@@ -22,7 +21,6 @@ const OrbCtaBand = ({
     data-figma="135:340"
     data-figma-name="CTA band"
   >
-    <Dither />
     {/* The design's 1436px frame, capped and centred: the percentage offsets
         below only compose correctly against that width, while the gradient
         itself still bleeds edge to edge. */}
