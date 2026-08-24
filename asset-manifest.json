@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/randomwebsite.github.io/static/css/main.c4e7b678.css",
-    "main.js": "/randomwebsite.github.io/static/js/main.fb40a0fe.js",
+    "main.js": "/randomwebsite.github.io/static/js/main.9a45bcd0.js",
     "static/media/free-float-cube-grasp.mp4": "/randomwebsite.github.io/static/media/free-float-cube-grasp.de7edf13ee586a3d401b.mp4",
     "static/media/segmentation_demo2.mp4": "/randomwebsite.github.io/static/media/segmentation_demo2.9d4ac8885111319449fd.mp4",
     "static/media/ar3_catch.mp4": "/randomwebsite.github.io/static/media/ar3_catch.31d49ba1a6e46ac96d52.mp4",
@@ -12,21 +12,20 @@
     "static/media/ai_view_ar3_catch.mp4": "/randomwebsite.github.io/static/media/ai_view_ar3_catch.e7aa48ff9725b053fe3d.mp4",
     "static/media/astrobot.png": "/randomwebsite.github.io/static/media/astrobot.bd375b9a57dcd33931f1.png",
     "static/media/space-plate.png": "/randomwebsite.github.io/static/media/space-plate.223fe2db6ce4d3007a89.png",
-    "static/media/ora-product-line.png": "/randomwebsite.github.io/static/media/ora-product-line.99e14956103b4b17c555.png",
     "static/media/ora-giga.png": "/randomwebsite.github.io/static/media/ora-giga.749332d9118585590277.png",
+    "static/media/ora-product-line.png": "/randomwebsite.github.io/static/media/ora-product-line.e9128db879625379e00a.png",
     "static/media/naviq-demo.png": "/randomwebsite.github.io/static/media/naviq-demo.b9f41e446886eae5f140.png",
     "static/media/ora-astrosfera.png": "/randomwebsite.github.io/static/media/ora-astrosfera.e770d70224c59a0fe6fb.png",
     "static/media/ora-mini.png": "/randomwebsite.github.io/static/media/ora-mini.4eb735e020efd7dc9d38.png",
     "static/media/coming_soon.png": "/randomwebsite.github.io/static/media/coming_soon.2b86c750928919151705.png",
     "static/media/sohil.png": "/randomwebsite.github.io/static/media/sohil.2f772ef7529b7a4b4942.png",
-    "static/media/design-giga-all-arms.jpg": "/randomwebsite.github.io/static/media/design-giga-all-arms.c33d42a8677204f88893.jpg",
-    "static/media/design-flagship.jpg": "/randomwebsite.github.io/static/media/design-flagship.49b50fbc9874396b367c.jpg",
-    "static/media/design-mini.jpg": "/randomwebsite.github.io/static/media/design-mini.3e6d690be21ed0d5c7c9.jpg",
     "static/media/cupola-earth-limb.png": "/randomwebsite.github.io/static/media/cupola-earth-limb.7ca5253df0f9a9a62360.png",
     "static/media/hero-particles.png": "/randomwebsite.github.io/static/media/hero-particles.819f037b97ffa5fc8445.png",
     "static/media/ora-giga.webp": "/randomwebsite.github.io/static/media/ora-giga.4dcaa6c3b046aa10b164.webp",
     "static/media/hiring-philosophy.jpg": "/randomwebsite.github.io/static/media/hiring-philosophy.4d80d13a548e5f279568.jpg",
     "static/media/ora-arm.png": "/randomwebsite.github.io/static/media/ora-arm.1eeece1565dfc6dd4a14.png",
+    "static/media/design-giga-all-arms.jpg": "/randomwebsite.github.io/static/media/design-giga-all-arms.9ca678875aca553cc062.jpg",
+    "static/media/design-flagship.jpg": "/randomwebsite.github.io/static/media/design-flagship.63c702f226bc591503b7.jpg",
     "static/media/f073.jpg": "/randomwebsite.github.io/static/media/f073.934e3b13d0890aa5abf2.jpg",
     "static/media/f075.jpg": "/randomwebsite.github.io/static/media/f075.847855098efbddf80b03.jpg",
     "static/media/f074.jpg": "/randomwebsite.github.io/static/media/f074.f968fbfae9348f2f5809.jpg",
@@ -86,6 +85,7 @@
     "static/media/f028.jpg": "/randomwebsite.github.io/static/media/f028.914c008e922756c35283.jpg",
     "static/media/f027.jpg": "/randomwebsite.github.io/static/media/f027.6eaeb58295b9d67dd573.jpg",
     "static/media/f026.jpg": "/randomwebsite.github.io/static/media/f026.3a63cc0305556d770d13.jpg",
+    "static/media/design-mini.jpg": "/randomwebsite.github.io/static/media/design-mini.a9bc31dca5887411c6f2.jpg",
     "static/media/f025.jpg": "/randomwebsite.github.io/static/media/f025.126f61929a4226640906.jpg",
     "static/media/f024.jpg": "/randomwebsite.github.io/static/media/f024.b6850505745d5f8bb83a.jpg",
     "static/media/panel-right.png": "/randomwebsite.github.io/static/media/panel-right.e0dbb0b8b5c5652cfeaa.png",
@@ -271,10 +271,10 @@
     "static/media/bracket-rule.svg": "/randomwebsite.github.io/static/media/bracket-rule.a93758a77ad5575cdfc6e39cb71ee5d9.svg",
     "static/media/ora-ellipse.svg": "/randomwebsite.github.io/static/media/ora-ellipse.05b76736833d33f633e7bf41025880f0.svg",
     "main.c4e7b678.css.map": "/randomwebsite.github.io/static/css/main.c4e7b678.css.map",
-    "main.fb40a0fe.js.map": "/randomwebsite.github.io/static/js/main.fb40a0fe.js.map"
+    "main.9a45bcd0.js.map": "/randomwebsite.github.io/static/js/main.9a45bcd0.js.map"
   },
   "entrypoints": [
     "static/css/main.c4e7b678.css",
-    "static/js/main.fb40a0fe.js"
+    "static/js/main.9a45bcd0.js"
   ]
 }
