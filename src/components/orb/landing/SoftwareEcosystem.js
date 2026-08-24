@@ -1,7 +1,7 @@
 import React from 'react';
 import OrbButton from '../OrbButton';
 import { SOFTWARE } from '../../../data/brand';
-import LoopDiagram from '../../../assets/orb/loop-diagram.png';
+import LoopDiagram from '../../../assets/orb/loop-diagram.webp';
 
 // Figma 335:372 (Frame 85). Two stacked blocks:
 //

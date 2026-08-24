@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import OrbButton from '../OrbButton';
 import { CREW, SOFTWARE } from '../../../data/brand';
-import Founder1 from '../../../assets/orb/founder-1.png';
-import Founder2 from '../../../assets/orb/founder-2.png';
-import Founder3 from '../../../assets/orb/founder-3.png';
+import Founder1 from '../../../assets/orb/founder-1.webp';
+import Founder2 from '../../../assets/orb/founder-2.webp';
+import Founder3 from '../../../assets/orb/founder-3.webp';
 import PilotsGlow from '../../../assets/orb/pilots-glow.svg';
 
 // "THE PILOTS" — Figma 54:3, the band around y=2831..3690.

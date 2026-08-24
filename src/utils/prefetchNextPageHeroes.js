@@ -1,5 +1,4 @@
-import AaronImg from '../assets/headshots/aaron.png';
-import ProductLine from '../assets/orb/arms/ora-product-line.png';
+import AaronImg from '../assets/headshots/aaron.jpg';
 import HiringPhilosophy from '../assets/orb/careers/hiring-philosophy.jpg';
 
 // Warms the browser cache for the first image a visitor meets on each of the
@@ -7,7 +6,10 @@ import HiringPhilosophy from '../assets/orb/careers/hiring-philosophy.jpg';
 // start from a cold fetch. Runs only after the landing page's own images have
 // settled, at idle, at low priority — it must never compete with anything the
 // visitor is currently looking at.
-const NEXT_PAGE_HEROES = [AaronImg, ProductLine, HiringPhilosophy];
+// Deliberately excludes the arm page's hero: at ~1MB it was a quarter of the
+// landing page's weight, speculatively, for a page a visitor may never open.
+// These two are a few tens of KB together.
+const NEXT_PAGE_HEROES = [AaronImg, HiringPhilosophy];
 
 // Only skip on connections where a few megabytes actually costs the visitor
 // something. Browsers without the Network Information API (Safari) report

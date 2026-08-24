@@ -17,23 +17,30 @@ const FRAMES = ctx
     return m && m.default ? m.default : m;
   });
 
-// Preload every frame at module load — as soon as this chunk of the bundle
-// evaluates, not when the capture stage first mounts. The globe stage (pure
-// SVG) is on screen immediately with no network cost, but this stage is ~25MB
-// of JPEGs; starting the fetch only when scroll reaches it (the diagram
-// previously unmounted/remounted this component via `showCapture`) left the
-// arm blank until the download caught up. Module scope means the fetch runs
-// once and every mount just reuses these same Image objects.
-const PRELOADED_FRAMES = FRAMES.map((src) => {
-  const img = new Image();
-  img.decoding = 'async';
-  // Set before src, which is what actually kicks off the fetch. The sequence is
-  // large and not needed until the user scrolls to it, so it yields to anything
-  // above the fold rather than racing the hero for bandwidth.
-  img.fetchPriority = 'low';
-  img.src = src;
-  return img;
-});
+// The sequence is ~9MB, so WHEN it is fetched decides the page's weight for most
+// visitors. Two obvious options are both wrong: fetching on mount leaves the arm
+// blank while 80 files download, and fetching at module load bills every visitor
+// 9MB even if they never scroll that far.
+//
+// So warming is explicit and idempotent. The section that owns the sequence calls
+// warmCaptureFrames() once it is within a screen or two of the viewport, which is
+// far enough ahead that the frames are decoded before the handoff and late enough
+// that someone who bounces off the hero never pays for them. Frames stay at low
+// priority so they always yield to above-the-fold content.
+const PRELOADED_FRAMES = [];
+
+export const warmCaptureFrames = () => {
+  if (PRELOADED_FRAMES.length || !FRAMES.length) return PRELOADED_FRAMES;
+  FRAMES.forEach((src) => {
+    const img = new Image();
+    img.decoding = 'async';
+    // Set before src, which is what actually starts the fetch.
+    img.fetchPriority = 'low';
+    img.src = src;
+    PRELOADED_FRAMES.push(img);
+  });
+  return PRELOADED_FRAMES;
+};
 
 const MissionCaptureFrames = ({ sp, fallback = null }) => {
   const canvasRef = useRef(null);
@@ -45,7 +52,8 @@ const MissionCaptureFrames = ({ sp, fallback = null }) => {
   useEffect(() => {
     if (!FRAMES.length) return undefined;
     const canvas = canvasRef.current;
-    imgsRef.current = PRELOADED_FRAMES;
+    // Mounting is itself proof the frames are needed now.
+    imgsRef.current = warmCaptureFrames();
 
     const idxFor = (s) => {
       const i = Math.round((Number.isFinite(s) ? s : 0) * (FRAMES.length - 1));

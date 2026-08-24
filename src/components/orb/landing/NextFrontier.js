@@ -1,8 +1,8 @@
-import React from 'react';
-import CollageLab from '../../../assets/orb/collage-lab.png';
+import React, { useEffect, useRef } from 'react';
+import CollageLab from '../../../assets/orb/collage-lab.webp';
 import CollageLabVideo from '../../../assets/video/ai_view_ar3_catch.mp4';
-import CollageArm from '../../../assets/orb/collage-arm.png';
-import CollageSegmentation from '../../../assets/orb/collage-segmentation.png';
+import CollageArm from '../../../assets/orb/collage-arm.jpg';
+import CollageSegmentation from '../../../assets/orb/collage-segmentation.jpg';
 import PanelLeft from '../../../assets/orb/panel-left.png';
 import PanelRight from '../../../assets/orb/panel-right.png';
 import { SOFTWARE } from '../../../data/brand';
@@ -27,6 +27,47 @@ import { SOFTWARE } from '../../../data/brand';
 // Stacking, back to front, matches the file's layer order: panel-right, arm,
 // panel-left, earth, lab. The lab is the topmost node, so it clips the earth
 // shot's upper-right corner rather than the other way round.
+
+// Fetches nothing until it is close to the viewport, then plays. `preload="none"`
+// only holds while the element has no autoPlay attribute, so playback is started
+// explicitly here.
+const LazyVideo = ({ src, poster, className, label }) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    if (typeof IntersectionObserver === 'undefined') {
+      el.play().catch(() => {});
+      return undefined;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) el.play().catch(() => {});
+          else el.pause();
+        });
+      },
+      { rootMargin: '100% 0px' }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      poster={poster}
+      preload="none"
+      loop
+      muted
+      playsInline
+      aria-label={label}
+      className={className}
+    />
+  );
+};
 
 const naviq = SOFTWARE[1];
 
@@ -67,16 +108,12 @@ const NextFrontier = () => (
         />
 
         {/* The one moving panel in the collage. Same lab scene the still was cut
-            from, kept greyscale so it reads as one composition with the other
-            two, which stay stills. */}
-        <video
+            from, kept greyscale so it reads as one composition with the other two,
+            which stay stills. */}
+        <LazyVideo
           src={CollageLabVideo}
           poster={CollageLab}
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-label="Flight hardware on the bench in the Seattle lab."
+          label="Flight hardware on the bench in the Seattle lab."
           className="absolute left-[30.98%] top-[8%] z-30 w-[38.52%] object-cover grayscale lg:top-[44.27%] lg:h-[37.39%]"
         />
         <img

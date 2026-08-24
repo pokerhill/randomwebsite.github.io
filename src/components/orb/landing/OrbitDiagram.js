@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion';
 import { CaptureScene, GlobeScene, chaserPointAt } from '../../home/MissionSequence';
-import MissionCaptureFrames from '../../home/MissionCaptureFrames';
+import MissionCaptureFrames, { warmCaptureFrames } from '../../home/MissionCaptureFrames';
 
 // Figma 201:160 "Group 5" — x=191 y=1435, 1115.006 x 911.391 on the landing frame.
 // Wireframe Earth on dotted orbit rings, with the chaser and the unprepared
@@ -67,6 +67,9 @@ const STAGES = ['ORBIT', 'TRANSFER', 'PROX-OPS', 'CAPTURE'];
 const CAPTURE_FROM = 0.5;
 const CAPTURE_SPAN = 0.43;
 
+// See the warm call below. Far enough ahead of CAPTURE_FROM to hide the fetch.
+const WARM_AT = 0.1;
+
 const ZOOM_MAX = 1.7;
 const smoothstep = (u) => u * u * (3 - 2 * u);
 
@@ -131,10 +134,22 @@ const OrbitDiagram = () => {
     window.addEventListener('resize', measure);
     return () => window.removeEventListener('resize', measure);
   }, [measure]);
+
   const reduce = useReducedMotion();
   const [progress, setProgress] = useState(0);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
   useMotionValueEvent(scrollYProgress, 'change', setProgress);
+
+  // The frames are ~9MB, so they cannot be part of the initial page load, but
+  // waiting for the handoff at CAPTURE_FROM leaves the arm blank while 80 files
+  // download. Progress through this section is the signal that actually tracks
+  // "about to need them": an IntersectionObserver fires at load however generous
+  // the margin, because the section begins barely half a screen below the fold.
+  // WARM_AT is a tenth of a 300vh section, leaving well over a screen of scroll
+  // before the cut. Anyone who never reaches the diagram never fetches them.
+  useMotionValueEvent(scrollYProgress, 'change', (v) => {
+    if (v > WARM_AT) warmCaptureFrames();
+  });
 
   // Reduced motion: hold the completed intercept rather than flying it.
   const p = reduce ? 1 : progress;

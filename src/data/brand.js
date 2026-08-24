@@ -9,7 +9,7 @@
 // design shows them shouting, that must be a CSS text-transform on the element,
 // never uppercase baked into these strings.
 
-import AaronImg from '../assets/headshots/aaron.png';
+import AaronImg from '../assets/headshots/aaron.jpg';
 import RileyImg from '../assets/headshots/riley.jpg';
 import SohilImg from '../assets/headshots/sohil.png';
 import WillImg from '../assets/headshots/will.jpg';
@@ -18,9 +18,9 @@ import DougImg from '../assets/headshots/Doug.jpg';
 import EricFeltImg from '../assets/headshots/EricFelt.jpg';
 import ChrisImg from '../assets/headshots/Christopher_Sembroski.jpg';
 import TaylorImg from '../assets/headshots/TaylorBanks.jpeg';
-import AstrosferaArm from '../assets/orb/arms/ora-astrosfera.png';
-import MiniArm from '../assets/orb/arms/ora-mini.png';
-import GigaArm from '../assets/orb/arms/ora-giga.png';
+import AstrosferaArm from '../assets/orb/arms/ora-astrosfera.webp';
+import MiniArm from '../assets/orb/arms/ora-mini.webp';
+import GigaArm from '../assets/orb/arms/ora-giga.webp';
 
 // --- Company -----------------------------------------------------------------
 
