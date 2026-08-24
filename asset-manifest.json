@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/randomwebsite.github.io/static/css/main.c4e7b678.css",
-    "main.js": "/randomwebsite.github.io/static/js/main.2e536e7e.js",
+    "main.js": "/randomwebsite.github.io/static/js/main.fb40a0fe.js",
     "static/media/free-float-cube-grasp.mp4": "/randomwebsite.github.io/static/media/free-float-cube-grasp.de7edf13ee586a3d401b.mp4",
     "static/media/segmentation_demo2.mp4": "/randomwebsite.github.io/static/media/segmentation_demo2.9d4ac8885111319449fd.mp4",
     "static/media/ar3_catch.mp4": "/randomwebsite.github.io/static/media/ar3_catch.31d49ba1a6e46ac96d52.mp4",
@@ -271,10 +271,10 @@
     "static/media/bracket-rule.svg": "/randomwebsite.github.io/static/media/bracket-rule.a93758a77ad5575cdfc6e39cb71ee5d9.svg",
     "static/media/ora-ellipse.svg": "/randomwebsite.github.io/static/media/ora-ellipse.05b76736833d33f633e7bf41025880f0.svg",
     "main.c4e7b678.css.map": "/randomwebsite.github.io/static/css/main.c4e7b678.css.map",
-    "main.2e536e7e.js.map": "/randomwebsite.github.io/static/js/main.2e536e7e.js.map"
+    "main.fb40a0fe.js.map": "/randomwebsite.github.io/static/js/main.fb40a0fe.js.map"
   },
   "entrypoints": [
     "static/css/main.c4e7b678.css",
-    "static/js/main.2e536e7e.js"
+    "static/js/main.fb40a0fe.js"
   ]
 }
