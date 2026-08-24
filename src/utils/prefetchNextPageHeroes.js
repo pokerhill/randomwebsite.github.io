@@ -1,6 +1,6 @@
 import AaronImg from '../assets/headshots/aaron.png';
 import ProductLine from '../assets/orb/arms/ora-product-line.png';
-import HiringPhilosophy from '../assets/orb/careers/hiring-philosophy.png';
+import HiringPhilosophy from '../assets/orb/careers/hiring-philosophy.jpg';
 
 // Warms the browser cache for the first image a visitor meets on each of the
 // main nav destinations, so clicking through from the landing page does not

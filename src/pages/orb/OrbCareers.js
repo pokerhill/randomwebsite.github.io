@@ -4,8 +4,8 @@ import OrbPage from '../../components/orb/OrbPage';
 import OrbButton from '../../components/orb/OrbButton';
 import DividerGlow from '../../components/orb/DividerGlow';
 import { OPEN_ROLES } from '../../data/brand';
-import HiringPhilosophy from '../../assets/orb/careers/hiring-philosophy.png';
-import LifeAtOrbital from '../../assets/orb/careers/life-at-orbital.png';
+import HiringPhilosophy from '../../assets/orb/careers/hiring-philosophy.jpg';
+import LifeAtOrbital from '../../assets/orb/careers/life-at-orbital.jpg';
 
 // Figma "Careers" (369:1234). Display headline, accent divider, two alternating
 // copy/circular-image blocks, then Open Roles as #202020 rows.
