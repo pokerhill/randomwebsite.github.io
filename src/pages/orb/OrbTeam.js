@@ -47,6 +47,7 @@ const OrbTeam = () => {
                   <img
                     src={m.image}
                     alt={m.name}
+                    loading="lazy"
                     className="aspect-[307/349] w-full rounded-sm object-cover object-top grayscale transition-opacity group-hover:opacity-80"
                   />
                   <figcaption className="mt-8">
@@ -79,6 +80,7 @@ const OrbTeam = () => {
                 <img
                   src={a.image}
                   alt={a.name}
+                  loading="lazy"
                   className="h-[153px] w-[153px] shrink-0 rounded-full object-cover transition-opacity group-hover:opacity-80"
                 />
 

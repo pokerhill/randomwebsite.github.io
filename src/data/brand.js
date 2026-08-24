@@ -17,7 +17,6 @@ import GordonImg from '../assets/headshots/Gordon-dp.jpg';
 import DougImg from '../assets/headshots/Doug.jpg';
 import EricFeltImg from '../assets/headshots/EricFelt.jpg';
 import ChrisImg from '../assets/headshots/Christopher_Sembroski.jpg';
-import TolgaImg from '../assets/headshots/Tolga_Ors.jpeg';
 import TaylorImg from '../assets/headshots/TaylorBanks.jpeg';
 import AstrosferaArm from '../assets/orb/arms/ora-astrosfera.png';
 import MiniArm from '../assets/orb/arms/ora-mini.png';
@@ -110,8 +109,8 @@ export const STATS = [
 
 // --- People ------------------------------------------------------------------
 // Figma errors corrected here: "Aaron Borgor" -> "Aaron (Cyborg) Borger";
-// Roesler mis-tagged "Ex-Blue Origin" -> "Ex–DARPA"; the duplicated second
-// "Christopher Sembroski" row is Tolga Ors.
+// Roesler mis-tagged "Ex-Blue Origin" -> "Ex–DARPA". The design also has a
+// duplicated second "Christopher Sembroski" row, which is not a real advisor.
 
 export const CREW = [
   {
@@ -192,15 +191,6 @@ export const ADVISORS = [
     bio:
       "Commercial astronaut and mission specialist on SpaceX's Inspiration4, the first all-civilian orbital mission. Former Blue Origin avionics engineer and adjunct faculty at Embry-Riddle Aeronautical University.",
     linkedin: 'https://www.linkedin.com/in/chris-sembroski/',
-  },
-  {
-    name: 'Tolga Ors',
-    role: 'Advisor',
-    image: TolgaImg,
-    credentials: ['Satcom', 'PhD'],
-    bio:
-      'Space systems strategist with 25+ years in satellite communications, AI, and robotics across Intelsat, Inmarsat, OneWeb, and AST SpaceMobile. PhD in Satellite Communications, University of Surrey.',
-    linkedin: 'https://www.linkedin.com/in/tolgaors/',
   },
   {
     name: 'Taylor Banks',

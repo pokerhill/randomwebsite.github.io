@@ -97,8 +97,13 @@ const Demo = ({ layer, caption }) =>
 
 // Scrolls at the shared MARQUEE_SPEED, same as the hardware wordmark, so every
 // oversized word on the site moves at one pace.
+//
+// Held to the content column rather than the viewport, matching the hardware
+// wordmark on the landing page: the track's fade then lands on the same gutter as
+// every other section instead of running to the screen edge. This is a departure
+// from the design, which bleeds the wordmark past the frame on both sides.
 const Watermark = ({ children }) => (
-  <Marquee className="pointer-events-none absolute left-1/2 top-1/2 w-screen -translate-x-1/2 -translate-y-1/2">
+  <Marquee className="pointer-events-none absolute left-1/2 top-1/2 w-full max-w-[1362px] -translate-x-1/2 -translate-y-1/2">
     {[0, 1, 2].map((i) => (
       <span
         key={i}
@@ -162,11 +167,46 @@ const Layer = ({ eyebrow, headline, blurb, body, watermark, caption, layer }) =>
 // design does.
 const IntroRings = () => (
   <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 mx-auto hidden max-w-[1440px] lg:block">
-    <span className="absolute left-[46.11%] top-[373.6px] aspect-square w-[54.17%] rounded-full border border-white/10" />
-    <span className="absolute left-[46.11%] top-[498.4px] aspect-square w-[54.17%] rounded-full border border-white/10" />
+    {/* 337:666 and 337:667 are one 463.31 x 639.86 ellipse drawn twice, co-centred
+        on the cupola at -/+45deg; the 780px square Figma reports is their rotated
+        bounding box, so reading it as a circle drew them oversized and 330px too
+        low. Each stroke is a gradient down the ellipse's own axis — the same
+        treatment the CTA band's lens uses, and the reason a flat border read far
+        too faint at the bright tip. */}
+    <svg
+      viewBox="0 0 780.054 780.054"
+      fill="none"
+      className="absolute left-[46.11%] top-[45.4px] aspect-square w-[54.17%]"
+    >
+      <defs>
+        <linearGradient id="orb-intro-lens" x1="0.5" y1="0" x2="0.5" y2="1">
+          <stop stopColor="#D9D9D9" />
+          <stop offset="1" stopColor="#161616" />
+        </linearGradient>
+      </defs>
+      <ellipse
+        cx="390.027"
+        cy="390.027"
+        rx="231.655"
+        ry="319.93"
+        stroke="url(#orb-intro-lens)"
+        vectorEffect="non-scaling-stroke"
+        transform="rotate(-45 390.027 390.027)"
+      />
+      <ellipse
+        cx="390.027"
+        cy="390.027"
+        rx="231.655"
+        ry="319.93"
+        stroke="url(#orb-intro-lens)"
+        vectorEffect="non-scaling-stroke"
+        transform="rotate(45 390.027 390.027)"
+      />
+    </svg>
     <img
       src={CupolaEarthLimb}
       alt=""
+      loading="lazy"
       className="absolute left-[59.79%] top-[238px] w-[26.94%] rounded-full object-cover"
     />
     <span className="absolute left-[55.56%] top-[209px] aspect-square w-[2.08%] rounded-full bg-white" />
@@ -198,7 +238,12 @@ const OrbSoftware = () => (
         cupola photo bleed in behind the text. IntroRings only shows at lg (see
         below), so the big gap is lg-only too — smaller screens keep the plain
         py-16 they had before. */}
-    <section className="relative px-6 py-16 md:px-10 lg:pb-[332px] lg:pt-[328px]">
+    {/* overflow-x-clip, not hidden: IntroRings' box spans 100.28% of the frame
+        (left 46.11% + width 54.17%), which put a 4px horizontal scrollbar on the
+        page. Its visible ink stops 107px short of that edge, so clipping x costs
+        nothing, while clip (unlike hidden) leaves the y bleed into the section
+        below intact. */}
+    <section className="relative overflow-x-clip px-6 py-16 md:px-10 lg:pb-[332px] lg:pt-[328px]">
       <IntroRings />
       <div className="relative mx-auto max-w-[1362px]">
         <p className="max-w-[659px] font-sohne text-orb-lead text-orb-text">

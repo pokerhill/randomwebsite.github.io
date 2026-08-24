@@ -2,24 +2,13 @@ import React from 'react';
 import OrbButton from './OrbButton';
 import { CTA } from '../../data/brand';
 
-// Closing band — Figma 135:340 (Frame 24), 1436x1328.
+// Closing band — Figma 135:340 (Frame 24), 1436x1328. Every offset below is the
+// node's own coordinate as a percentage of that frame:
 //
-// Rebuilt from node coordinates after the first version was guessed and read
-// nothing like the design. Every position is the node's own coordinate as a
-// percentage of the band:
-//
-//   ring A   135:344  left 13.65%  top 33.52%  w 72.14%   (1035.95 square)
-//   ring B   135:345  left 13.65%  top 46.00%  w 72.14%   (1035.95 square)
-//   content  135:351  left 24.23%  top 22.67%  w 50.21%
-//   dot 30   135:352  left 73.68%  top 23.80%  w  2.09%
-//   dot 18   146:157  left 31.34%  top 52.33%  w  1.25%
-//
-// Two corrections account for most of the difference:
-//   - The rings are two IDENTICAL circles offset vertically by ~166px, forming a
-//     lens. The first pass used counter-rotated squashed ellipses — a different
-//     shape entirely.
-//   - The band is 1328px tall (aspect 1.081). The first pass was ~721px, so the
-//     rings had no room and the section read as a short strip.
+//   lens     135:344 + 135:345  left 13.788%  top 0.753%   w 72.141%
+//   content  135:351            left 24.373%  top 22.666%  w 50.209%
+//   dot 30   135:352            left 73.816%  top 23.795%
+//   dot 18   146:157            left 31.476%  top 52.334%
 
 const OrbCtaBand = ({
   eyebrow = CTA.eyebrow,
@@ -28,49 +17,76 @@ const OrbCtaBand = ({
   to = CTA.href,
 }) => (
   <section
-    className="relative overflow-hidden bg-orb-cta lg:aspect-[1436/1328]"
+    className="relative overflow-hidden bg-orb-cta"
     data-figma="135:340"
     data-figma-name="CTA band"
   >
-    {/* The lens is two ellipses rotated +/-45 degrees, not two circles. The
-        1035.946 square in the metadata is the ROTATED bounding box; the shape
-        itself is 615.292 x 849.757 (59.39% x 82.03% of that square), one rotated
-        -45 and one mirrored, exactly as the design context spells out. Reading the
-        square bbox as a circle flattened the petal into a plain ring. */}
-    <div
-      aria-hidden
-      className="pointer-events-none absolute left-[13.65%] top-[-1%] aspect-square w-[72.14%]"
-    >
-      <div className="flex h-full w-full items-center justify-center">
-        <div className="h-[82.03%] w-[59.39%] -rotate-45 rounded-[50%] border border-white/[0.10]" />
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-[82.03%] w-[59.39%] rotate-45 rounded-[50%] border border-white/[0.10]" />
-      </div>
-    </div>
+    {/* The design's 1436px frame, capped and centred: the percentage offsets
+        below only compose correctly against that width, while the gradient
+        itself still bleeds edge to edge. */}
+    <div className="relative mx-auto w-full max-w-[1436px] lg:aspect-[1436/1328]">
+      {/* The lens is ONE 615.292 x 849.757 ellipse drawn twice, co-centred and
+          counter-rotated 45 degrees. The 1035.946 square Figma reports for each
+          is the AABB of the rotated rect — (615.292 + 849.757) / sqrt(2) — not a
+          diameter, so reading it as a circle draws the shape oversized.
 
-    {/* Accent dots, off-axis. */}
-    <span
-      aria-hidden
-      className="pointer-events-none absolute left-[73.68%] top-[9.5%] aspect-square w-[2.09%] rounded-full bg-white"
-    />
-    <span
-      aria-hidden
-      className="pointer-events-none absolute left-[31.34%] top-[37%] aspect-square w-[1.25%] rounded-full bg-white"
-    />
+          Each stroke is a gradient down the ellipse's OWN axis, which the 45
+          degree rotation turns into a diagonal: bright at the upper tip, fading
+          into the band's own #161616 at the lower one. A flat low-alpha border
+          loses both the brightness and the fade. */}
+      <svg
+        aria-hidden
+        viewBox="0 0 1035.946 1035.946"
+        fill="none"
+        className="pointer-events-none absolute hidden left-[13.788%] top-[0.753%] aspect-square w-[72.141%] lg:block"
+      >
+        <defs>
+          <linearGradient id="orb-cta-lens" x1="0.5" y1="0" x2="0.5" y2="1">
+            <stop stopColor="#D9D9D9" />
+            <stop offset="1" stopColor="#161616" />
+          </linearGradient>
+        </defs>
+        <ellipse
+          cx="517.973"
+          cy="517.973"
+          rx="307.646"
+          ry="424.879"
+          stroke="url(#orb-cta-lens)"
+          vectorEffect="non-scaling-stroke"
+          transform="rotate(-45 517.973 517.973)"
+        />
+        <ellipse
+          cx="517.973"
+          cy="517.973"
+          rx="307.646"
+          ry="424.879"
+          stroke="url(#orb-cta-lens)"
+          vectorEffect="non-scaling-stroke"
+          transform="rotate(45 517.973 517.973)"
+        />
+      </svg>
 
-    <div
-      className="relative mx-auto flex max-w-[721px] flex-col items-center px-6 py-28 text-center
-                 lg:absolute lg:left-[24.23%] lg:top-[9%] lg:mx-0 lg:w-[50.21%] lg:max-w-none lg:p-0"
-    >
-      <p className="font-plex text-orb-eyebrow uppercase text-orb-accent">{eyebrow}</p>
+      {/* Accent dots, off-axis. */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute hidden left-[73.816%] top-[23.795%] aspect-square w-[2.089%] rounded-full bg-white lg:block"
+      />
+      <span
+        aria-hidden
+        className="pointer-events-none absolute hidden left-[31.476%] top-[52.334%] aspect-square w-[1.253%] rounded-full bg-white lg:block"
+      />
 
-      {/* 693px wide over 222px tall in the design — two lines at display scale. */}
-      <h2 className="mt-8 font-sohne font-normal text-orb-display leading-[0.975] tracking-[-0.044em] text-orb-text">
-        {headline}
-      </h2>
+      <div
+        className="relative mx-auto flex max-w-[721px] flex-col items-center gap-[41px] px-6 py-28 text-center
+                   lg:absolute lg:left-[24.373%] lg:top-[22.666%] lg:mx-0 lg:w-[50.209%] lg:max-w-none lg:p-0"
+      >
+        <p className="font-plex text-orb-eyebrow uppercase text-orb-accent">{eyebrow}</p>
 
-      <div className="mt-10">
+        {/* 693px wide over 222px tall in the design — two lines at display scale. */}
+        <h2 className="font-sohne font-normal text-orb-display leading-[0.975] tracking-[-0.044em] text-orb-text">
+          {headline}
+        </h2>
+
         <OrbButton to={to}>{button}</OrbButton>
       </div>
     </div>

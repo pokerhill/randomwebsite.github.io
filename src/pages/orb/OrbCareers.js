@@ -58,6 +58,7 @@ const Block = ({ title, body, image, alt, flip = false }) => (
     <img
       src={image}
       alt={alt}
+      loading="lazy"
       className="mx-auto aspect-square w-full max-w-[528px] rounded-full object-cover"
     />
   </div>

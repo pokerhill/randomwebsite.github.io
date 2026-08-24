@@ -27,6 +27,10 @@ const FRAMES = ctx
 const PRELOADED_FRAMES = FRAMES.map((src) => {
   const img = new Image();
   img.decoding = 'async';
+  // Set before src, which is what actually kicks off the fetch. The sequence is
+  // large and not needed until the user scrolls to it, so it yields to anything
+  // above the fold rather than racing the hero for bandwidth.
+  img.fetchPriority = 'low';
   img.src = src;
   return img;
 });

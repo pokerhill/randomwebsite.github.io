@@ -38,6 +38,7 @@ const OrbFooter = () => (
       src={FooterMound}
       alt=""
       aria-hidden
+      loading="lazy"
       className="pointer-events-none absolute left-[14.39%] top-[19.56%] w-[71.14%]"
     />
 

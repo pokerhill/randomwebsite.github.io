@@ -78,7 +78,7 @@ const BLOCKS = [
 const RenderLayer = ({ layer, alt }) => (
   <div className="absolute" style={layer.box}>
     <div className="absolute inset-0 overflow-hidden">
-      <img src={layer.src} alt={alt || ''} aria-hidden={alt ? undefined : true} className="absolute max-w-none" style={layer.crop} />
+      <img src={layer.src} alt={alt || ''} aria-hidden={alt ? undefined : true} loading="lazy" className="absolute max-w-none" style={layer.crop} />
     </div>
     <div aria-hidden className="absolute inset-0 bg-orb-render-fade" />
   </div>
@@ -142,38 +142,52 @@ const Bracket = ({ className }) => (
 const OrbArmDetail = () => (
   <OrbPage>
     <section
-      className="relative isolate overflow-hidden bg-orb-black lg:aspect-[1440/899]"
+      className="relative isolate overflow-hidden bg-orb-black"
       data-figma="291:544"
       data-figma-name="Arm hero"
     >
-      <img
-        src={ProductLine}
-        alt="The ORA series product line."
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div
-        className="relative px-6 pb-24 pt-44 md:px-10 md:pt-52
-                   lg:absolute lg:left-[2.64%] lg:top-[39.49%] lg:w-[39.31%] lg:p-0"
-      >
-        {/* 113.898px / 100px leading. Tracking is -0.05em here, tighter than the
-            shared orb-display token's -0.02em, so it is set locally. */}
-        <h1 className="whitespace-nowrap font-sohne font-normal text-orb-display tracking-[-0.05em] text-orb-text">
-          ORA-SERIES
-        </h1>
-        <p className="mt-8 max-w-[558px] font-sohne text-orb-lg text-orb-text lg:mt-[66px]">
-          Enabling the next generation of space operations with autonomous robotics
-        </p>
+      {/* The design's 1440px frame, capped and centred: the copy's percentage
+          offsets only compose correctly against that width, and the still keeps
+          the design's crop instead of scaling up with the viewport. */}
+      <div className="relative mx-auto w-full max-w-[1440px] lg:aspect-[1440/899]">
+        <img
+          src={ProductLine}
+          alt="The ORA series product line."
+          fetchpriority="high"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          className="relative px-6 pb-24 pt-44 md:px-10 md:pt-52
+                     lg:absolute lg:left-[2.64%] lg:top-[39.49%] lg:w-[39.31%] lg:p-0"
+        >
+          {/* 113.898px / 100px leading. Tracking is -0.05em here, tighter than the
+              shared orb-display token's -0.02em, so it is set locally. */}
+          <h1 className="whitespace-nowrap font-sohne font-normal text-orb-display tracking-[-0.05em] text-orb-text">
+            ORA-SERIES
+          </h1>
+          <p className="mt-8 max-w-[558px] font-sohne text-orb-lg text-orb-text lg:mt-[66px]">
+            Enabling the next generation of space operations with autonomous robotics
+          </p>
+        </div>
       </div>
     </section>
 
     <DividerGlow />
 
-    <section className="px-6 pb-6 pt-16 md:px-10 lg:px-[2.99%] lg:pb-[11px] lg:pt-[83px]">
-      <p className="max-w-[1287px] font-sohne text-orb-sub text-orb-text">
-        Our robotic arms perform the physical work in orbit: capture, manipulation, and servicing.
-        Paired with {SOFTWARE[1].name} for perception and {SOFTWARE[2].name} for autonomous guidance
-        and control, they form a complete autonomous capture and servicing system.
-      </p>
+    <section className="px-6 pb-6 pt-16 md:px-10 lg:px-0 lg:pb-[11px] lg:pt-[83px]">
+      {/* The 2.99% inset is 43px of the design's 1440 frame. It sits on the
+          paragraph rather than as padding on the wrapper because percentage
+          padding resolves against the CONTAINING block, which is the uncapped
+          section — that read 2.99% of the viewport and left this line hugging the
+          far edge, 526px adrift at 2560, while the heading above stayed centred.
+          As a margin on a child of the capped frame it resolves against 1440. */}
+      <div className="mx-auto w-full max-w-[1440px]">
+        <p className="max-w-[1287px] font-sohne text-orb-sub text-orb-text lg:ml-[2.99%]">
+          Our robotic arms perform the physical work in orbit: capture, manipulation, and servicing.
+          Paired with {SOFTWARE[1].name} for perception and {SOFTWARE[2].name} for autonomous guidance
+          and control, they form a complete autonomous capture and servicing system.
+        </p>
+      </div>
     </section>
 
     {/* The lens is 158% of the render it sits behind, so it needs clipping below

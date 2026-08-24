@@ -1,5 +1,6 @@
 import React from 'react';
 import CollageLab from '../../../assets/orb/collage-lab.png';
+import CollageLabVideo from '../../../assets/video/ai_view_ar3_catch.mp4';
 import CollageArm from '../../../assets/orb/collage-arm.png';
 import CollageSegmentation from '../../../assets/orb/collage-segmentation.png';
 import PanelLeft from '../../../assets/orb/panel-left.png';
@@ -22,6 +23,10 @@ import { SOFTWARE } from '../../../data/brand';
 //
 // The two blue panels are exported image nodes (dot-matrix screens with their own
 // brightness falloff), not the CSS dot grid a previous pass approximated.
+//
+// Stacking, back to front, matches the file's layer order: panel-right, arm,
+// panel-left, earth, lab. The lab is the topmost node, so it clips the earth
+// shot's upper-right corner rather than the other way round.
 
 const naviq = SOFTWARE[1];
 
@@ -61,10 +66,18 @@ const NextFrontier = () => (
           className="absolute left-[58.61%] top-[45%] w-[32.46%] lg:top-[62.85%] lg:h-[32.33%]"
         />
 
-        <img
-          src={CollageLab}
-          alt="Flight hardware on the bench in the Seattle lab."
-          className="absolute left-[30.98%] top-[8%] z-10 w-[38.52%] object-cover grayscale lg:top-[44.27%] lg:h-[37.39%]"
+        {/* The one moving panel in the collage. Same lab scene the still was cut
+            from, kept greyscale so it reads as one composition with the other
+            two, which stay stills. */}
+        <video
+          src={CollageLabVideo}
+          poster={CollageLab}
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-label="Flight hardware on the bench in the Seattle lab."
+          className="absolute left-[30.98%] top-[8%] z-30 w-[38.52%] object-cover grayscale lg:top-[44.27%] lg:h-[37.39%]"
         />
         <img
           src={CollageArm}

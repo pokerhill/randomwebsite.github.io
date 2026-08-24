@@ -29,7 +29,7 @@ const PORT = 5051;
 const BASE = `http://localhost:${PORT}/randomwebsite.github.io`;
 const N = Number(process.env.FRAMES || 80);
 const DSF = 2.0;
-const QUALITY = Number(process.env.QUALITY || 95);
+const QUALITY = Number(process.env.QUALITY || 78);
 const P0 = 0.5; // capture view spans mission progress 0.50 → 0.93
 const P1 = 0.93;
 

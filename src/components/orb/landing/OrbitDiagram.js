@@ -58,6 +58,8 @@ const ORB_CAPTURE_PALETTE = {
   lockFill: 'rgba(59,69,245,0.16)',
 };
 
+// Four phases, used only to divide scroll progress into quarters — the names are
+// no longer surfaced in the UI.
 const STAGES = ['ORBIT', 'TRANSFER', 'PROX-OPS', 'CAPTURE'];
 
 // The globe owns ORBIT and TRANSFER; the capture scene owns PROX-OPS and CAPTURE
@@ -258,10 +260,6 @@ const OrbitDiagram = () => {
                 />
               </div>
             )}
-
-            <p className="pointer-events-none absolute bottom-0 left-0 font-plex text-orb-label uppercase text-orb-text-2">
-              {STAGES[stage]}
-            </p>
           </div>
         </div>
       </div>
