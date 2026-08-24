@@ -129,7 +129,7 @@ const OrbContact = () => {
                 </div>
 
                 <div className="flex items-center justify-between py-5">
-                  <span className="font-plex text-orb-label uppercase text-orb-text-4">Downlink</span>
+                  <span className="font-plex text-orb-label uppercase text-orb-text-4">LinkedIn</span>
                   <a
                     href={COMPANY.linkedin}
                     target="_blank"
