@@ -161,13 +161,17 @@ const Hardware = () => {
         <div className="relative mt-16 hidden aspect-[1434/1040] w-full lg:block">
           {/* Oversized wordmark. In Figma this is a single 4919px-wide text at
               x=-154 — a track, not static type — so it scrolls. It runs through
-              the vertical centre and the arm occludes it. */}
+              the vertical centre and the arm occludes it.
+              The size is capped at its 1440 value: the stage stops growing at
+              1362px, so an uncapped 17vw kept scaling past it — 585px glyphs on a
+              3440 screen, where one letter is as wide as the arm and reads as a
+              grey slab behind it rather than as type. */}
           <div aria-hidden className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2">
             <Marquee className="w-full">
               {[0, 1, 2].map((i) => (
                 <span
                   key={i}
-                  className="px-10 font-sohne text-[17vw] font-bold uppercase leading-none tracking-[-0.01em] text-white opacity-[0.16]"
+                  className="px-10 font-sohne text-[min(17vw,245px)] font-bold uppercase leading-none tracking-[-0.01em] text-white opacity-[0.16]"
                 >
                   {activeArm.name}
                 </span>

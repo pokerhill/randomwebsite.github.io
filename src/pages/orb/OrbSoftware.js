@@ -102,13 +102,17 @@ const Demo = ({ layer, caption }) =>
 // wordmark on the landing page: the track's fade then lands on the same gutter as
 // every other section instead of running to the screen edge. This is a departure
 // from the design, which bleeds the wordmark past the frame on both sides.
+//
+// Type is capped at its 1440 value for the same reason the width is: past that the
+// column stops growing, so an uncapped 27.78vw just inflated the glyphs against a
+// fixed box.
 const Watermark = ({ children }) => (
   <Marquee className="pointer-events-none absolute left-1/2 top-1/2 w-full max-w-[1362px] -translate-x-1/2 -translate-y-1/2">
     {[0, 1, 2].map((i) => (
       <span
         key={i}
         aria-hidden
-        className="select-none whitespace-nowrap px-[0.14em] font-sohne text-[27.78vw] font-bold
+        className="select-none whitespace-nowrap px-[0.14em] font-sohne text-[min(27.78vw,400px)] font-bold
                    uppercase leading-[1.2075] tracking-[0.0447em] text-white opacity-20"
       >
         {children}
