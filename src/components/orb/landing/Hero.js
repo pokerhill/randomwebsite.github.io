@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import OrbButton from '../OrbButton';
+import Dither from '../Dither';
 import { ARMS } from '../../../data/brand';
 import HeroParticles from '../../../assets/orb/hero-particles.png';
 
@@ -36,6 +37,7 @@ const Hero = () => (
     data-figma="54:3"
     data-figma-name="Hero"
   >
+    <Dither />
     {/* Faint starfield over the gradient. */}
     <div
       aria-hidden

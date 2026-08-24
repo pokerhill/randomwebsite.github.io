@@ -2,6 +2,7 @@ import React from 'react';
 import OrbPage from '../../components/orb/OrbPage';
 import OrbButton from '../../components/orb/OrbButton';
 import DividerGlow from '../../components/orb/DividerGlow';
+import Dither from '../../components/orb/Dither';
 import { ARMS, SOFTWARE } from '../../data/brand';
 import ProductLine from '../../assets/orb/arms/ora-product-line.png';
 import LensA from '../../assets/orb/lens-a.svg';
@@ -192,7 +193,8 @@ const OrbArmDetail = () => (
 
     {/* The lens is 158% of the render it sits behind, so it needs clipping below
         lg where the render is nearly viewport-wide. */}
-    <section className="overflow-hidden bg-orb-band">
+    <section className="relative overflow-hidden bg-orb-band">
+      <Dither />
       <div className="relative mx-auto w-full max-w-[1434px] lg:aspect-[1434/2410]">
         {ARMS.map((arm, i) => (
           <ArmBlock key={arm.id} arm={arm} block={BLOCKS[i]} />
