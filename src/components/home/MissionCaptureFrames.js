@@ -17,6 +17,20 @@ const FRAMES = ctx
     return m && m.default ? m.default : m;
   });
 
+// Preload every frame at module load — as soon as this chunk of the bundle
+// evaluates, not when the capture stage first mounts. The globe stage (pure
+// SVG) is on screen immediately with no network cost, but this stage is ~25MB
+// of JPEGs; starting the fetch only when scroll reaches it (the diagram
+// previously unmounted/remounted this component via `showCapture`) left the
+// arm blank until the download caught up. Module scope means the fetch runs
+// once and every mount just reuses these same Image objects.
+const PRELOADED_FRAMES = FRAMES.map((src) => {
+  const img = new Image();
+  img.decoding = 'async';
+  img.src = src;
+  return img;
+});
+
 const MissionCaptureFrames = ({ sp, fallback = null }) => {
   const canvasRef = useRef(null);
   const imgsRef = useRef([]);
@@ -27,15 +41,7 @@ const MissionCaptureFrames = ({ sp, fallback = null }) => {
   useEffect(() => {
     if (!FRAMES.length) return undefined;
     const canvas = canvasRef.current;
-
-    // Preload every frame (warms the HTTP + decode cache). Only the currently
-    // drawn frame is force-decoded on screen, so memory stays bounded.
-    imgsRef.current = FRAMES.map((src) => {
-      const img = new Image();
-      img.decoding = 'async';
-      img.src = src;
-      return img;
-    });
+    imgsRef.current = PRELOADED_FRAMES;
 
     const idxFor = (s) => {
       const i = Math.round((Number.isFinite(s) ? s : 0) * (FRAMES.length - 1));
