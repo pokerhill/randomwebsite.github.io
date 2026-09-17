@@ -9,7 +9,7 @@ import { Eyebrow, Badge, Button, Breadcrumb, CornerBrackets } from '../../compon
 import OrbtosConsole from '../../components/OrbtosConsole';
 
 // Renders image / single video / cycling video array into a fixed media frame.
-const ProductMedia = ({ image, video, videos, imageFit = 'contain', imageBg = '', videoFit = 'contain', videoBg = '', videoPosition = 'center', controls = false, title, className = '' }) => {
+const ProductMedia = ({ image, video, videos, imageFit = 'contain', imageBg = '', videoFit = 'contain', videoBg = '', videoPosition = 'center', controls = false, title, className = '', loading }) => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const videoRef = useRef(null);
 
@@ -45,7 +45,7 @@ const ProductMedia = ({ image, video, videos, imageFit = 'contain', imageBg = ''
           style={{ objectPosition: videoPosition }}
         />
       ) : (
-        <img src={image} alt={title} className={`w-full h-[320px] md:h-[460px] object-${imageFit} ${imageBg}`} />
+        <img src={image} alt={title} loading={loading} className={`w-full h-[320px] md:h-[460px] object-${imageFit} ${imageBg}`} />
       )}
       <span className="absolute bottom-2 left-2 type-mono-label text-text-faint bg-black/60 px-2 py-1 pointer-events-none">
         {activeVideo ? 'SIMULATION' : 'RENDER'}
@@ -351,6 +351,7 @@ const ProductDetailTemplate = ({ product }) => {
                 <ProductMedia
                   image={demo.image} video={demo.video} videos={demo.videos}
                   controls={demo.controls} videoFit={demo.videoFit || 'cover'} videoPosition={demo.videoPosition || 'center'}
+                  loading="lazy"
                   title={`${title} demo ${index + 1}`}
                 />
                 {demo.caption && <p className="mt-4 text-center text-sm text-text-secondary">{demo.caption}</p>}
