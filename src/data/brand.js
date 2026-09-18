@@ -17,6 +17,7 @@ import GordonImg from '../assets/headshots/Gordon-dp.jpg';
 import DougImg from '../assets/headshots/Doug.jpg';
 import EricFeltImg from '../assets/headshots/EricFelt.jpg';
 import ChrisImg from '../assets/headshots/Christopher_Sembroski.jpg';
+import TolgaImg from '../assets/headshots/Tolga_Ors.jpeg';
 import TaylorImg from '../assets/headshots/TaylorBanks.jpeg';
 import AstrosferaArm from '../assets/orb/arms/ora-astrosfera.webp';
 import MiniArm from '../assets/orb/arms/ora-mini.webp';
@@ -108,8 +109,9 @@ export const STATS = [
 
 // --- People ------------------------------------------------------------------
 // Figma errors corrected here: "Aaron Borgor" -> "Aaron (Cyborg) Borger";
-// Roesler mis-tagged "Ex-Blue Origin" -> "Ex–DARPA". The design also has a
-// duplicated second "Christopher Sembroski" row, which is not a real advisor.
+// Roesler mis-tagged "Ex-Blue Origin" -> "Ex–DARPA". The design's duplicated
+// second "Christopher Sembroski" row stands in for Tolga Ors, who sits in that
+// slot on the live site; the duplicate is a Figma error, Ors is a real advisor.
 
 export const CREW = [
   {
@@ -119,7 +121,7 @@ export const CREW = [
     photoScale: 1.22,
     credentials: ['Ex–Blue Origin', 'BE-7 Lead'],
     bio:
-      "Aaron leads AI and robotics for autonomous satellite servicing. As the former lead software engineer for Blue Origin's BE-7 lunar lander engine, he managed 25 engineers to develop and verify flight software. \n\nAaron was also a PhD researcher in aerospace dynamics & controls for the Space Force's SSTI-2 satellite servicing program.",
+      "Leads AI and robotics for autonomous satellite servicing. Formerly lead software engineer for Blue Origin's BE-7 lunar lander engine, where he managed 25 engineers. PhD researcher in aerospace dynamics & controls for the Space Force's SSTI-2 satellite servicing program, with a provisional patent in autonomous satellite servicing.",
     linkedin: 'https://www.linkedin.com/in/aaron-borger/',
     email: 'aborger@orbital-robots.com',
   },
@@ -185,6 +187,15 @@ export const ADVISORS = [
     bio:
       'Former DARPA Program Manager for the Robotic Servicing of Geosynchronous Satellites (RSGS) program and founder of Robots in Space LLC. Two decades advancing in-orbit servicing and autonomy across government, academia, and industry.',
     linkedin: 'https://www.linkedin.com/in/gordon-roesler-8b0a646/',
+  },
+  {
+    name: 'Tolga Ors',
+    role: 'Advisor',
+    image: TolgaImg,
+    credentials: ['Satcom', 'PhD'],
+    bio:
+      'Space systems strategist with 25+ years in satellite communications, AI, and robotics across Intelsat, Inmarsat, OneWeb, and AST SpaceMobile. PhD in Satellite Communications, University of Surrey.',
+    linkedin: 'https://www.linkedin.com/in/tolgaors/',
   },
   {
     name: 'Taylor Banks',
