@@ -63,3 +63,18 @@
     animation: none !important;
   }
 }
+
+/* Lenis (SmoothScroll.js) recommended base styles — window mode, no scroll
+   wrapper element, so this is the library's own minimal set rather than the
+   fuller "wrapper/content" recipe. data-lenis-prevent opts an element (the
+   mobile nav overlay in Header.js) out of the global wheel smoothing, so it
+   keeps its own native scroll instead of fighting the page behind it. */
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}

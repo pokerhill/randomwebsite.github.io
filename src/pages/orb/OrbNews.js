@@ -67,9 +67,9 @@ const OrbNews = () => (
     <section className="px-6 pb-16 pt-44 md:px-10 md:pt-52">
       <div className="mx-auto max-w-[1362px]">
         <p className="font-plex text-orb-eyebrow uppercase text-orb-accent">MISSION LOG</p>
-        <h1 className="mt-6 font-sohne font-normal text-orb-display text-orb-text">Mission log</h1>
+        <h1 className="mt-6 font-sohne font-normal text-orb-display text-orb-text">Mission Log</h1>
         <p className="mt-9 max-w-[720px] font-sohne text-orb-lead text-orb-text">
-          Milestones, partnerships, and media coverage — dated and on the record.
+          Milestones, partnerships, media coverage, and more.
         </p>
       </div>
     </section>

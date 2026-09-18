@@ -2,18 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import OrbButton from '../OrbButton';
 import { CREW, SOFTWARE } from '../../../data/brand';
-import Founder1 from '../../../assets/orb/founder-1.webp';
-import Founder2 from '../../../assets/orb/founder-2.webp';
-import Founder3 from '../../../assets/orb/founder-3.webp';
 import PilotsGlow from '../../../assets/orb/pilots-glow.svg';
 
 // "THE PILOTS" — Figma 54:3, the band around y=2831..3690.
 //
-// Portraits are the design's own images (Rectangle 16/17/18), not the live site's
-// headshots — different crop and a black-and-white treatment. They are paired to
-// names by x-coordinate, which lines up exactly in the file: Rectangle 16 at
-// x=115 sits above the name frame at x=114, Rectangle 17 at x=537 above x=537,
-// Rectangle 18 at x=962 above x=963.
+// Portraits paired to names by CREW order (Aaron, Riley, Sohil — the three
+// Co-Founders), same source photos as the Team page rather than a separate
+// design-sourced set.
 //
 // The cards are NOT a flat row: the design steps each one further down
 // (y=2831.7 / 2995.7 / 3164.7), a ~164px cascade.
@@ -28,28 +23,16 @@ const founders = CREW.filter((m) => m.role.startsWith('Co-Founder'));
 const CASCADE = [0, 164, 333];
 const LEVEL = CASCADE.reduce((a, b) => a + b, 0) / CASCADE.length;
 
-// All three source rectangles in Figma (84:40/84:41/84:42) crop with
-// object-bottom, not object-top or object-center — confirmed from
-// get_design_context on each node.
-//
-// Sohil's source photo is a corporate headshot framed much wider than the
-// other two founders' tight, face-filling photography — at its original
-// 505x644 crop (0.784, vs. the design's 861x1024 / 900x1024, 0.841/0.879)
-// the face sat small in the upper third of the card with a lot of empty
-// jacket below it, visibly out of step with its neighbours despite no
-// actual CSS distortion. Re-cropped the source file itself (not just
-// object-position) to 421x480 — tight on the head with a hint of shoulder,
-// matching how much of the frame the other two founders' faces fill —
-// rather than trying to fake a tighter crop with object-fit alone, which
-// can only pick WHICH edge cover crops from, not zoom past that.
-const PORTRAITS = [
-  { src: Founder1, position: 'object-bottom' },
-  { src: Founder2, position: 'object-bottom' },
-  { src: Founder3, position: 'object-bottom' },
-];
+// Portraits are the same 2026 headshots used on the Team page (brand.js
+// CREW[].image) rather than a separate design-sourced set, so this card's
+// crop point mirrors the Team page's: object-cover (never stretched — the
+// card's aspect-[363/413] is within a percent of the Team grid's
+// aspect-[307/349], so the same "50% 10%" position — a little headroom above
+// the hairline, cropping from the bottom — reads the same way in both places.
+const PORTRAITS = founders.map(() => ({ position: 'object-[50%_10%]' }));
 
-// The design's body copy names the stack; composed from brand.js so the casing
-// stays correct (the Figma writes "ORBtos" here but "ORBTOS" elsewhere).
+// The design's body copy names the stack; composed from brand.js so the names
+// stay in sync with the rest of the site.
 const stack = `${SOFTWARE[2].name}, ${SOFTWARE[1].name}, and ${SOFTWARE[0].name}`;
 
 // The cascade only exists at lg and up; below that the cards are a single
@@ -73,7 +56,7 @@ const PilotCard = ({ member, portrait, offset, progress, still }) => {
   return (
     <motion.figure style={still ? undefined : { y }} className="lg:will-change-transform">
       <img
-        src={portrait.src}
+        src={member.image}
         alt={member.name}
         className={`aspect-[363/413] w-full rounded-sm object-cover ${portrait.position}`}
       />

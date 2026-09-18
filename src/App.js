@@ -2,6 +2,7 @@ import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, MotionConfig } from 'framer-motion';
 import ScrollToTop from './components/ScrollToTop';
+import SmoothScroll from './components/SmoothScroll';
 import Layout from './components/Layout';
 import PageTransition from './components/motion/PageTransition';
 import Products from './pages/Products';
@@ -47,6 +48,7 @@ function App() {
       {/* reducedMotion="user" makes every Framer Motion animation honor the
           OS "Reduce Motion" setting (transforms disabled, opacity kept). */}
       <MotionConfig reducedMotion="user">
+        <SmoothScroll />
         <ScrollToTop />
         {/* The redesign pages ship their own nav and footer, so they render
             outside Layout rather than nesting a second set of chrome.

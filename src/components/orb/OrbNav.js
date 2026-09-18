@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import OrbButton from './OrbButton';
@@ -35,6 +35,12 @@ import ToggleRing from '../../assets/orb/nav-toggle-ring.svg';
 
 const SCROLL_THRESHOLD = 24;
 
+// Hover-driven open/close for the toggle: a short delay before opening so a
+// passing cursor doesn't trigger it, and a longer delay before closing so
+// crossing the gap down into the open panel doesn't get read as "left".
+const HOVER_OPEN_DELAY = 150;
+const HOVER_CLOSE_DELAY = 300;
+
 // The toggle glyph is traced from Figma's own vectors (Overlay Navigation,
 // nodes 385:478/481/487) rather than approximated: a 40%-opacity ring built
 // from four separate arcs with gaps at N/S/E/W (exported as
@@ -65,6 +71,30 @@ const OrbNav = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const reduce = useReducedMotion();
+  const openTimer = useRef(null);
+  const closeTimer = useRef(null);
+
+  const clearHoverTimers = () => {
+    clearTimeout(openTimer.current);
+    clearTimeout(closeTimer.current);
+  };
+
+  // Shared by the toggle's buffer zone and the open panel itself, so moving
+  // the cursor from one into the other (through the gap between them) reads
+  // as staying inside rather than leaving.
+  const handleHoverEnter = () => {
+    clearHoverTimers();
+    if (!open) {
+      openTimer.current = setTimeout(() => setOpen(true), HOVER_OPEN_DELAY);
+    }
+  };
+
+  const handleHoverLeave = () => {
+    clearHoverTimers();
+    closeTimer.current = setTimeout(() => setOpen(false), HOVER_CLOSE_DELAY);
+  };
+
+  useEffect(() => clearHoverTimers, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
@@ -104,18 +134,30 @@ const OrbNav = () => {
             FIRST CONTACT
           </OrbButton>
 
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="orb-mega-menu"
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            className="text-orb-text transition-colors hover:text-orb-accent
-                       focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-                       focus-visible:outline-orb-accent"
-          >
-            <ToggleIcon open={open} />
-          </button>
+          <div className="relative" onMouseEnter={handleHoverEnter} onMouseLeave={handleHoverLeave}>
+            {/* Invisible hit-area extending past the toggle's own bounds, so a
+                cursor that drifts slightly outside the visible ring while
+                heading for the panel doesn't get read as "left". Absolutely
+                positioned, so it adds no spacing to the layout around it —
+                the enter/leave handlers live on the wrapper above, since this
+                and the button are siblings and both feed its hit area. */}
+            <div aria-hidden className="absolute -inset-3" />
+            <button
+              type="button"
+              onClick={() => {
+                clearHoverTimers();
+                setOpen((v) => !v);
+              }}
+              aria-expanded={open}
+              aria-controls="orb-mega-menu"
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              className="relative text-orb-text transition-colors hover:text-orb-accent
+                         focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+                         focus-visible:outline-orb-accent"
+            >
+              <ToggleIcon open={open} />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -129,6 +171,8 @@ const OrbNav = () => {
               animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
               exit={reduce ? { opacity: 0 } : { opacity: 0, y: -12 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
+              onMouseEnter={handleHoverEnter}
+              onMouseLeave={handleHoverLeave}
               className="mt-6 grid gap-10 rounded-2xl border border-orb-glass-border bg-orb-glass
                          p-8 backdrop-blur-orb-nav md:grid-cols-3 md:gap-0 md:p-10"
             >

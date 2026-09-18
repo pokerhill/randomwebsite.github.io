@@ -80,11 +80,14 @@ const ProfileModal = ({ member, onClose }) => {
         </button>
 
         <div className="flex flex-col gap-10 pt-8 sm:pt-6 lg:flex-row lg:items-start lg:gap-16 lg:pt-2">
-          <img
-            src={member.image}
-            alt={member.name}
-            className="aspect-[307/349] w-full max-w-[307px] shrink-0 rounded-sm object-cover object-top"
-          />
+          <div className="aspect-[307/349] w-full max-w-[307px] shrink-0 overflow-hidden rounded-sm">
+            <img
+              src={member.image}
+              alt={member.name}
+              style={{ transform: `translateY(-8px) scale(${member.photoScale || 1})` }}
+              className="h-full w-full origin-[50%_20%] object-[50%_10%] object-cover"
+            />
+          </div>
 
           <div className="flex flex-col items-start gap-8">
             {member.credentials?.[0] && (
@@ -98,7 +101,7 @@ const ProfileModal = ({ member, onClose }) => {
               <p className="font-sohne text-orb-caption text-orb-text">{member.role}</p>
             </div>
 
-            <p className="max-w-[554px] font-sohne text-orb-caption leading-[1.6] text-orb-text">
+            <p className="max-w-[554px] whitespace-pre-line font-sohne text-orb-caption leading-[1.6] text-orb-text">
               {member.bio}
             </p>
 

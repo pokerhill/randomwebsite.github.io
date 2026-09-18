@@ -1,7 +1,7 @@
 import React from 'react';
 import OrbPage from '../../components/orb/OrbPage';
 import { SOFTWARE } from '../../data/brand';
-import OrbtosArchitecture from '../../components/orb/OrbtosArchitecture';
+import FlightSuiteArchitecture from '../../components/orb/FlightSuiteArchitecture';
 import Marquee from '../../components/orb/Marquee';
 import NaviqDemo from '../../assets/orb/naviq-demo.png';
 import NaviqSegmentation from '../../assets/video/in_space_segmentation_compressed.mp4';
@@ -12,8 +12,7 @@ import CupolaEarthLimb from '../../assets/orb/cupola-earth-limb.png';
 // Figma "Software" (335:409) — a 1440x6606 frame. Hero lockup, the architecture
 // diagram, then a section per layer (NavIQ, then ASTRA-P).
 //
-// Product names come from brand.js, so this page says ORBtos and NavIQ rather
-// than the design's ORBTOS and NAVIQ.
+// Product names come from brand.js.
 //
 // The demo band is the part that was wrong before. In the design the giant
 // wordmark and the still are not stacked — the wordmark bleeds past the frame on
@@ -32,7 +31,7 @@ import CupolaEarthLimb from '../../assets/orb/cupola-earth-limb.png';
 // 17.889px tracking, 20% white. 400/1440 = 27.78vw, so it scales with the frame
 // the way the design does.
 
-const [orbtos, naviq, astrap] = SOFTWARE;
+const [flightSuite, naviq, astrap] = SOFTWARE;
 
 // Figma ships both demos as flat stills, but each one is a frame of footage this
 // repo already carries — so they play here rather than sitting still:
@@ -121,16 +120,17 @@ const Watermark = ({ children }) => (
   </Marquee>
 );
 
-const Layer = ({ eyebrow, headline, blurb, body, watermark, caption, layer }) => (
+const Layer = ({ eyebrow, headline, blurb, blurbMaxWidth = 560, body, watermark, caption, layer }) => (
   <section className="overflow-hidden py-20 md:py-28">
     <div className="mx-auto max-w-[1372px] px-6 md:px-10">
-      <div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
-        <div className="max-w-[696px]">
-          <p className="font-plex text-orb-eyebrow uppercase text-orb-accent">{eyebrow}</p>
-          <h2 className="mt-6 font-sohne font-normal text-orb-h1 text-orb-text">{headline}</h2>
-        </div>
-        <p className="max-w-[496px] font-sohne text-orb-body text-orb-text opacity-70">{blurb}</p>
-      </div>
+      <p className="font-plex text-orb-eyebrow uppercase text-orb-accent">{eyebrow}</p>
+      <h2 className="mt-6 font-sohne font-normal text-orb-h1 text-orb-text">{headline}</h2>
+      <p
+        className="mt-6 font-sohne text-orb-body text-orb-text opacity-70"
+        style={{ maxWidth: blurbMaxWidth }}
+      >
+        {blurb}
+      </p>
     </div>
 
     {/* Demo band. Sits outside the content column so the still's width resolves
@@ -223,10 +223,10 @@ const OrbSoftware = () => (
     <section className="px-6 pb-16 pt-44 md:px-10 md:pt-52">
       <div className="mx-auto max-w-[1362px]">
         <h1 className="font-sohne font-normal text-orb-display text-orb-text">
-          {orbtos.name} System
+          {flightSuite.name}
         </h1>
         <p className="mt-9 max-w-[1044px] font-sohne text-orb-lead text-orb-text">
-          {orbtos.name} runs {naviq.name} (perception) and {astrap.name} (autonomous guidance and
+          Our full flight suite runs {naviq.name} (perception) and {astrap.name} (autonomous guidance and
           control) as native modules
         </p>
       </div>
@@ -235,7 +235,7 @@ const OrbSoftware = () => (
     {/* Architecture diagram — Figma 335:451, rebuilt as real DOM from the node
         tree (glass cards, pills, lockup) rather than pasted in as a flat export,
         so the labels are live text and use brand.js casing. */}
-    <OrbtosArchitecture />
+    <FlightSuiteArchitecture />
 
     {/* Figma leaves 328px above this line and 332px below it (diagram bottom
         1295 -> paragraph 1623 -> NavIQ heading 2129) before the rings and the
@@ -261,6 +261,7 @@ const OrbSoftware = () => (
       eyebrow={naviq.name}
       headline="Vision and perception"
       blurb="Our computer vision software. Estimates the position and motion of any unprepared satellite or debris object from stereo vision alone."
+      blurbMaxWidth={640}
       body={naviq.long}
       watermark={naviq.name}
       caption={`${naviq.name} segmenting an unprepared target in orbit.`}

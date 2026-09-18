@@ -5,16 +5,18 @@ import LoopDiagram from '../../../assets/orb/loop-diagram.webp';
 
 // Figma 335:372 (Frame 85). Two stacked blocks:
 //
-//   1. A bracket-framed row: "SOFTWARE SYSTEM" + the ORBtos lockup on the left,
-//      "Control the dexterity layer in space" + LEARN on the right.
-//   2. Below: "ORBtos + NavIQ + ASTRA-P" in accent mono over a large statement,
-//      with the closed-loop diamond diagram on the right.
+//   1. A bracket-framed row: "SOFTWARE SYSTEM" + the Flight Suite lockup on the
+//      left, "Control the dexterity layer in space" + LEARN on the right.
+//   2. Below: "Flight Suite + NavIQ + ASTRA-P" in accent mono over a large
+//      statement, with the closed-loop diamond diagram on the right.
 //
 // The diagram (VISION → ORBTOS → MOTION diamonds over a circular particle field)
 // is exported flat: in Figma its backdrop is itself a pasted screenshot, so there
-// is nothing cleaner to rebuild from. Labels are covered by `alt`.
+// is nothing cleaner to rebuild from. Labels are covered by `alt`. NOTE: this
+// still reads "ORBTOS" in the baked pixels post-rename — it's a flat image
+// asset, not live text, so it needs a fresh export to catch up.
 
-const [orbtos, naviq, astrap] = SOFTWARE;
+const [, naviq, astrap] = SOFTWARE;
 
 // The design frames this block with hairline corner brackets.
 const Bracket = ({ className }) => (
@@ -42,9 +44,9 @@ const SoftwareEcosystem = () => (
             <p className="font-plex text-orb-label uppercase tracking-[0.14em] text-orb-text">
               SOFTWARE SYSTEM
             </p>
-            {/* Mono bold, near-display scale — the design's ORBtos lockup. */}
+            {/* Mono bold, near-display scale — the design's Flight Suite lockup. */}
             <p className="mt-4 font-plex text-[clamp(3.5rem,9vw,8.3rem)] font-bold uppercase leading-none tracking-[0.01em] text-orb-text">
-              {orbtos.name}
+              Flight Suite
             </p>
           </div>
 
@@ -63,7 +65,7 @@ const SoftwareEcosystem = () => (
       <div className="mt-24 grid items-center gap-16 lg:grid-cols-2">
         <div>
           <p className="font-plex text-orb-label uppercase tracking-[0.09em] text-orb-accent">
-            {orbtos.name} + {naviq.name} + {astrap.name}
+            Flight Suite + {naviq.name} + {astrap.name}
           </p>
           <p className="mt-8 max-w-[591px] font-sohne text-orb-h2 text-orb-text">
             Closes the loop between sight and motion enabling autonomous capture
@@ -72,7 +74,7 @@ const SoftwareEcosystem = () => (
 
         <img
           src={LoopDiagram}
-          alt={`Closed loop: ${naviq.name} provides vision, ${orbtos.name} hosts the stack, ${astrap.name} drives motion.`}
+          alt={`Closed loop: ${naviq.name} provides vision, Flight Suite hosts the stack, ${astrap.name} drives motion.`}
           className="mx-auto w-full max-w-[763px]"
         />
       </div>

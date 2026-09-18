@@ -50,7 +50,7 @@ const Footer = () => {
               <li><Link to="/products/astrobot" className="text-text-secondary hover:text-accent transition-colors text-sm">AstroBot</Link></li>
               <li><Link to="/products/astrap" className="text-text-secondary hover:text-accent transition-colors text-sm">ASTRA-P</Link></li>
               <li><Link to="/products/naviq" className="text-text-secondary hover:text-accent transition-colors text-sm">NavIQ</Link></li>
-              <li><Link to="/products/satellite-os" className="text-text-secondary hover:text-accent transition-colors text-sm">ORBtos</Link></li>
+              <li><Link to="/products/satellite-os" className="text-text-secondary hover:text-accent transition-colors text-sm">Flight Suite</Link></li>
             </ul>
           </div>
 

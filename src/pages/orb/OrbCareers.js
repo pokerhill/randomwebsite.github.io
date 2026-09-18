@@ -4,7 +4,7 @@ import OrbPage from '../../components/orb/OrbPage';
 import OrbButton from '../../components/orb/OrbButton';
 import DividerGlow from '../../components/orb/DividerGlow';
 import { OPEN_ROLES } from '../../data/brand';
-import HiringPhilosophy from '../../assets/orb/careers/hiring-philosophy.jpg';
+import HiringPhilosophy from '../../assets/orb/careers/team-in-seattle.jpg';
 import LifeAtOrbital from '../../assets/orb/careers/life-at-orbital.jpg';
 
 // Figma "Careers" (369:1234). Display headline, accent divider, two alternating
@@ -80,13 +80,13 @@ const OrbCareers = () => (
       <div className="mx-auto flex max-w-[1362px] flex-col gap-28">
         <Block
           title="Our Hiring Philosophy"
-          body="We believe a strong fit for Orbital Robotics is more than just your resume. We look for candidates that are low-ego, work well in small teams, and obsessively passionate about the space industry. Also, we don't make you type out your experience."
+          body="We believe a strong fit for Orbital Robotics is more than just your resume. We look for obsessive, low-ego candidates that work well in small teams and are deeply passionate about the space industry. Also, we don't make you type out your experience."
           image={HiringPhilosophy}
           alt=""
         />
         <Block
           title="Life at Orbital Robotics"
-          body="We celebrate our wins and failures together as a team while ruthlessly pursuing the greater objective. We recognize the value of each team member and welcome the opportunity to celebrate you as well."
+          body="We celebrate our wins and failures together as a team while ruthlessly pursuing the greater objective. We recognize the individual value of each team member and welcome the opportunity to celebrate you as well."
           image={LifeAtOrbital}
           alt=""
           flip

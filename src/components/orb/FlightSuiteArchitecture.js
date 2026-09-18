@@ -10,12 +10,11 @@ import ConnectorLine from '../../assets/orb/arch/connector-line.svg';
 import RingL from '../../assets/orb/arch/ring-l.svg';
 import RingR from '../../assets/orb/arch/ring-r.svg';
 
-// ORBtos architecture diagram — Figma 335:451, a 1442x752 band.
+// Flight Suite architecture diagram — Figma 335:451, a 1442x752 band.
 //
 // Rebuilt as real DOM from the node tree rather than pasted in as a flat export,
-// so the labels are selectable text, the product names come from brand.js (the
-// design says "ORBTOS"/"NAVIQ"; the live site says ORBtos/NavIQ), and the glass
-// cards use the same tokens as the rest of the site.
+// so the labels are selectable text, the product names come from brand.js, and
+// the glass cards use the same tokens as the rest of the site.
 //
 // Every value below is the node's own from the file, expressed as a percentage of
 // the 1442x752 band:
@@ -34,7 +33,7 @@ import RingR from '../../assets/orb/arch/ring-r.svg';
 // rgba(217,217,217,.5) -> rgba(115,115,115,0) gradient, 0.883px #d9d9d9 border,
 // 16.773px radius.
 
-const [orbtos, naviq, astrap] = SOFTWARE;
+const [, naviq, astrap] = SOFTWARE;
 
 const CARD =
   'absolute overflow-hidden rounded-[1.16%/2.23%] border-[0.883px] border-[#d9d9d9] ' +
@@ -49,7 +48,7 @@ const Pill = ({ children, className }) => (
   </span>
 );
 
-const OrbtosArchitecture = () => (
+const FlightSuiteArchitecture = () => (
   <div className="relative w-full overflow-hidden bg-orb-black">
     {/* Blurred space plate with the design's dark wash over it. Stays on the
         full-bleed wrapper so the plate still runs edge to edge past 1442. */}
@@ -124,17 +123,14 @@ const OrbtosArchitecture = () => (
       <Pill className="left-[39.03%] top-[14.48%]">Software</Pill>
       <Pill className="left-[73.62%] top-[30.56%]">Hardware</Pill>
 
-      {/* ORBtos lockup */}
+      {/* Flight Suite lockup */}
       <div className="absolute left-[10.19%] top-[45.12%] flex h-[14.48%] w-[13.41%] flex-col items-center justify-center text-white">
-        <p className="w-full font-sohne text-[3.55vw] font-semibold leading-[1.4] tracking-[-0.031em] lg:text-[51.13px]">
-          {orbtos.name}
-        </p>
-        <p className="w-full text-center font-sohne text-[1.96vw] leading-[1.4] tracking-[-0.031em] lg:text-[28.25px]">
-          System
+        <p className="w-full text-center font-sohne text-[3.55vw] font-semibold leading-[1.4] tracking-[-0.031em] lg:text-[51.13px]">
+          Flight Suite
         </p>
       </div>
     </div>
   </div>
 );
 
-export default OrbtosArchitecture;
+export default FlightSuiteArchitecture;
