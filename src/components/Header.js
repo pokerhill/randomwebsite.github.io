@@ -111,6 +111,7 @@ function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
+            data-lenis-prevent
             className="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8 lg:hidden pt-24 pb-10 overflow-y-auto"
           >
             {navLinks.map((link, index) => (

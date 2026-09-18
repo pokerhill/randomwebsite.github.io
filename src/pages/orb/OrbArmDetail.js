@@ -31,8 +31,6 @@ import DesignGigaAllArms from '../../assets/orb/arms/design-giga-all-arms.jpg';
 //
 // Everything below is therefore a percentage of its parent's design box.
 
-const orbtos = SOFTWARE[0];
-
 // Percentages of the 1434x2410 board (369:1499).
 // Each render is a 3840x2160 studio still that the design crops hard into the
 // 504.41px circle. `box` is the image node's frame as a percentage of that
@@ -182,10 +180,10 @@ const OrbArmDetail = () => (
           far edge, 526px adrift at 2560, while the heading above stayed centred.
           As a margin on a child of the capped frame it resolves against 1440. */}
       <div className="mx-auto w-full max-w-[1440px]">
-        <p className="max-w-[1287px] font-sohne text-orb-sub text-orb-text lg:ml-[2.99%]">
+        <p className="max-w-[1287px] font-sohne text-[clamp(1.5833rem,calc(3.33vw_-_2.67px),2.8333rem)] leading-[1.4] tracking-[-0.021em] text-orb-text lg:ml-[2.99%]">
           Our robotic arms perform the physical work in orbit: capture, manipulation, and servicing.
           Paired with {SOFTWARE[1].name} for perception and {SOFTWARE[2].name} for autonomous guidance
-          and control, they form a complete autonomous capture and servicing system.
+          and control, forming a complete autonomous capture and servicing system.
         </p>
       </div>
     </section>
@@ -200,29 +198,20 @@ const OrbArmDetail = () => (
       </div>
     </section>
 
-    <section className="px-6 py-24 md:px-10 md:py-32">
-      <div className="relative mx-auto w-full max-w-[1361px] py-12 lg:aspect-[1361/351] lg:py-0">
+    <section className="px-6 py-12 md:px-10 md:py-14">
+      <div className="relative mx-auto w-full max-w-[1361px] px-10 py-10 md:px-16">
         <Bracket className="top-0" />
         <Bracket className="bottom-0 rotate-180" />
 
-        <div
-          className="flex flex-col gap-6 lg:absolute lg:left-[3.233%] lg:top-[29.06%] lg:w-[44.6%]"
-        >
-          <p className="font-plex text-[clamp(1.25rem,2.22vw,2rem)] uppercase leading-[26px] tracking-[0.0625em] text-orb-text">
-            SOFTWARE SYSTEM
-          </p>
-          <p className="font-plex text-[clamp(3.5rem,9.218vw,132.741px)] font-bold uppercase leading-[0.8125] tracking-[0.0075em] text-orb-text">
-            {orbtos.name}
-          </p>
-        </div>
-
-        <div
-          className="mt-12 flex flex-col items-start gap-10 lg:absolute lg:left-[48.64%]
-                     lg:top-[18.52%] lg:mt-0 lg:w-[51.21%]"
-        >
-          <h2 className="font-sohne font-normal text-orb-h2 leading-[1.15] text-orb-text">
-            Built to seamlessly integrate with {orbtos.name}
-          </h2>
+        <div className="flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+          <div className="flex flex-col gap-4">
+            <p className="font-plex text-[clamp(1.25rem,2.22vw,2rem)] uppercase leading-[26px] tracking-[0.0625em] text-orb-text">
+              SOFTWARE SYSTEM
+            </p>
+            <h2 className="max-w-[820px] font-sohne font-normal text-orb-h2 leading-[1.15] text-orb-text">
+              Built to seamlessly integrate with our flight software
+            </h2>
+          </div>
           <OrbButton to="/products/satellite-os">LEARN</OrbButton>
         </div>
       </div>

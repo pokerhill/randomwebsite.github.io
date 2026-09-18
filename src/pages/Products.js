@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 import AnimatedSection from '../components/motion/AnimatedSection';
 import { Button, SectionHeader, CornerBrackets } from '../components/ui';
-import OrbtosConsole from '../components/OrbtosConsole';
+import FlightSuiteConsole from '../components/FlightSuiteConsole';
 import { services, hardwareProducts, softwareProducts } from '../data/productsData';
 
 // Catalog IDs: the mono designation column of the index.
 const CATALOG_IDS = {
   'robotic-arms': 'ORA',
   astrobot: 'ASTROBOT',
-  'satellite-os': 'ORBTOS',
+  'satellite-os': 'FLIGHT-SUITE',
   naviq: 'NAV-IQ',
   astrap: 'ASTRA-P',
   'rpoc-service': 'SVC-RPOC',
@@ -55,7 +55,7 @@ const DossierMedia = ({ product }) => {
   if (product.console) {
     return (
       <div className="md:w-64 shrink-0 overflow-hidden">
-        <OrbtosConsole />
+        <FlightSuiteConsole />
       </div>
     );
   }
@@ -156,7 +156,7 @@ const Products = () => {
     <div className="min-h-screen bg-background pb-20">
       <SEO
         title="Systems"
-        description="Explore Orbital Robotics' hardware and software: the ORA robotic arm family, AstroBot refueling vehicle, ASTRA-P autonomous GNC, NavIQ computer vision, and ORBtos flight software."
+        description="Explore Orbital Robotics' hardware and software: the ORA robotic arm family, AstroBot refueling vehicle, ASTRA-P autonomous GNC, NavIQ computer vision, and our Flight Software Suite."
       />
       <div className="container mx-auto px-6">
         <AnimatedSection className="max-w-3xl mb-16 pt-10">

@@ -2,11 +2,11 @@ import React, { useRef, useState, useEffect } from 'react';
 import useInView from './motion/useInView';
 import { CornerBrackets } from './ui';
 
-// ORBtos as a real DOM instrument panel: boots on scroll, then runs live
+// Flight Suite as a real DOM instrument panel: boots on scroll, then runs live
 // telemetry. Representative values only — clearly labeled, never presented
 // as flight data.
 const BOOT_LINES = [
-  'ORBTOS v2.4 — BOOT SEQUENCE INITIATED',
+  'FLIGHT SUITE v2.4 — BOOT SEQUENCE INITIATED',
   'NAVIQ PERCEPTION MODULE ........ LOADED',
   'ASTRA-P GNC MODULE ............. LOADED',
   'ARM JOINTS 1–7 ................. NOMINAL',
@@ -28,7 +28,7 @@ const EVENT_LOG = [
 
 const pad = (n, w = 2) => String(Math.floor(Math.abs(n))).padStart(w, '0');
 
-const OrbtosConsole = () => {
+const FlightSuiteConsole = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.4 });
   const [bootCount, setBootCount] = useState(0);
@@ -72,7 +72,7 @@ const OrbtosConsole = () => {
     <div ref={ref} className="relative border hairline bg-surface font-mono text-[11px] leading-relaxed">
       {/* Title bar */}
       <div className="flex items-center justify-between border-b hairline px-4 py-2">
-        <span className="type-mono-label text-text-secondary">ORBTOS — FLIGHT CONSOLE</span>
+        <span className="type-mono-label text-text-secondary">FLIGHT SUITE — FLIGHT CONSOLE</span>
         <span className="type-mono-label text-text-faint">
           {booted ? `T+${pad(t / 60)}:${pad(t % 60)}` : 'STANDBY'}
         </span>
@@ -142,4 +142,4 @@ const OrbtosConsole = () => {
   );
 };
 
-export default OrbtosConsole;
+export default FlightSuiteConsole;

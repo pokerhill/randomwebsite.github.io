@@ -50,8 +50,8 @@ const OrbStarcloudAnnouncement = () => (
     <H3>About Orbital Robotics</H3>
     <P>
       Orbital Robotics develops robotic systems with mission-critical AI for on-orbit servicing,
-      assembly, and manufacturing. Orbital Robotics&rsquo; patent-pending technologies enable autonomous
-      spacecraft GNC and robotic manipulation with a verification approach enabling the safe use of AI
+      assembly, and manufacturing. Orbital Robotics&rsquo; technologies enable autonomous spacecraft GNC
+      and robotic manipulation with a verification approach enabling the safe use of AI
       in space for mission-critical tasks. Orbital Robotics was founded by former Blue Origin leaders
       with expertise in AI for aerospace, flight software, space robotics, and reusable spacecraft.
     </P>

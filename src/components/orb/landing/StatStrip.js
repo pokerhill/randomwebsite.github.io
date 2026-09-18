@@ -3,7 +3,9 @@ import { useReducedMotion } from 'framer-motion';
 import useInView from '../../motion/useInView';
 import { STATS } from '../../../data/brand';
 
-// Figma 205:179 — three centred columns split by full-height vertical hairlines.
+// Figma 205:179 — originally three centred columns split by full-height vertical
+// hairlines; now two after dropping the "Patent Pending" stat (no longer
+// pursuing patents), same divider treatment.
 //
 // Two corrections against my first pass: the labels are Söhne sentence-case, NOT
 // uppercase mono, and the numerals sit around 40px rather than at display scale.
@@ -59,7 +61,7 @@ const CountUp = ({ value, suffix = '' }) => {
 
 const StatStrip = () => (
   <section className="bg-orb-bg px-6 py-16 md:px-10 md:py-20">
-    <div className="mx-auto grid min-h-[204px] max-w-[1248px] divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0"
+    <div className="mx-auto grid min-h-[204px] max-w-[832px] divide-y divide-white/10 sm:grid-cols-2 sm:divide-x sm:divide-y-0"
           data-figma="205:179"
           data-figma-name="Stat strip"
         >

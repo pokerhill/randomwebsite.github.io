@@ -83,7 +83,7 @@ const Hero = () => (
         <div className="mt-10 flex flex-wrap items-center gap-9">
           <OrbButton to="/contact">BOOK DEMO</OrbButton>
           {/* Was "/products" — the old, pre-redesign product index page. "System"
-              means the ORBtos system, so this points at its actual redesigned
+              means the Flight Suite system, so this points at its actual redesigned
               page rather than the generic old one. */}
           <OrbButton to="/products/satellite-os">SEE SYSTEM</OrbButton>
         </div>

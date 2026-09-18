@@ -99,7 +99,7 @@ const Roadmap = () => {
             year: "2025",
             quarter: "Q4",
             title: "Pre-Seed Funding",
-            description: "Secured initial capital to accelerate R&D of core robotic arm technology and ORBtos.",
+            description: "Secured initial capital to accelerate R&D of core robotic arm technology and our Flight Software Suite.",
             status: "completed"
         },
         {
@@ -112,7 +112,7 @@ const Roadmap = () => {
         {
             year: "2026",
             quarter: "Q3",
-            title: "ORBtos & First Mission",
+            title: "Flight Software Suite & First Mission",
             description: "First in-space mission using our robotic arm and AI-powered software to perform autonomous operations on a customer satellite.",
             status: "upcoming"
         },

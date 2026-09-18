@@ -44,12 +44,15 @@ const OrbTeam = () => {
                 className="group text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orb-accent"
               >
                 <figure>
-                  <img
-                    src={m.image}
-                    alt={m.name}
-                    loading="lazy"
-                    className="aspect-[307/349] w-full rounded-sm object-cover object-top grayscale transition-opacity group-hover:opacity-80"
-                  />
+                  <div className="aspect-[307/349] w-full overflow-hidden rounded-sm">
+                    <img
+                      src={m.image}
+                      alt={m.name}
+                      loading="lazy"
+                      style={{ transform: `translateY(-8px) scale(${m.photoScale || 1})` }}
+                      className="h-full w-full origin-[50%_20%] object-[50%_10%] object-cover grayscale transition-opacity group-hover:opacity-80"
+                    />
+                  </div>
                   <figcaption className="mt-8">
                     <p className="font-sohne text-orb-lg text-orb-text">{m.name}</p>
                     <p className="mt-3 font-sohne text-orb-caption text-orb-text-2">{m.role}</p>

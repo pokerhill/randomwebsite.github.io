@@ -14,7 +14,7 @@ import LiveCapture from './MissionCaptureLive';
 // eslint-disable-next-line no-undef
 const RENDER3D = process.env.REACT_APP_RENDER3D === '1';
 
-// Pinned, scroll-flown ORBtos mission: orbit → transfer → prox-ops → capture,
+// Pinned, scroll-flown Flight Suite mission: orbit → transfer → prox-ops → capture,
 // with a synced ops-telemetry screen beside the mission view. Everything on the
 // telemetry rail derives from scroll progress, so the two screens can never
 // drift apart. Representative profile only — clearly stamped, never flight data.
@@ -415,7 +415,7 @@ const TelemetryRail = ({ progress, stage, range, relVel }) => {
   return (
     <div className="h-full flex flex-col bg-surface font-mono text-[11px] leading-relaxed min-h-0">
       <div className="flex items-center justify-between border-b hairline px-4 py-2 shrink-0">
-        <span className="type-mono-label text-text-secondary">ORBTOS — OPS TELEMETRY</span>
+        <span className="type-mono-label text-text-secondary">FLIGHT SUITE — OPS TELEMETRY</span>
         <span className="type-mono-label text-text-faint tabular-nums">T+{pad(t / 60)}:{pad(t % 60)}</span>
       </div>
 
@@ -588,13 +588,13 @@ const MissionSequence = () => {
                 <p className="type-display text-h3 text-white mb-3 [text-shadow:0_2px_28px_rgba(0,0,0,0.95),0_0_8px_rgba(0,0,0,0.8)]">
                   Every screen you just watched
                   <br />
-                  runs on ORBtos.
+                  runs on our Flight Suite.
                 </p>
                 <Link
                   to="/products/satellite-os"
                   className={`type-mono-label text-accent hover:text-white transition-colors ${endCard ? 'pointer-events-auto' : ''}`}
                 >
-                  OPEN THE ORBTOS DOSSIER →
+                  OPEN THE FLIGHT SUITE DOSSIER →
                 </Link>
               </motion.div>
             </div>

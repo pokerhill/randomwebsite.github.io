@@ -5,14 +5,14 @@
 // Figma has several naming errors. Layout/visuals come from Figma; wording comes
 // from here. See tasks/figma-design-spec.md §7 for the full reconciliation.
 //
-// Casing matters: ORBtos and NavIQ are mixed-case product names. Where the
+// Casing matters: Flight Software Suite and NavIQ are mixed-case product names. Where the
 // design shows them shouting, that must be a CSS text-transform on the element,
 // never uppercase baked into these strings.
 
-import AaronImg from '../assets/headshots/aaron.jpg';
-import RileyImg from '../assets/headshots/riley.jpg';
-import SohilImg from '../assets/headshots/sohil.png';
-import WillImg from '../assets/headshots/will.jpg';
+import AaronImg from '../assets/headshots/Aaron_Borger_2026.jpg';
+import RileyImg from '../assets/headshots/Riley_Mark_2026.jpg';
+import SohilImg from '../assets/headshots/Sohil_Pokharna_2026.jpg';
+import WillImg from '../assets/headshots/William_Liu_2026.jpg';
 import GordonImg from '../assets/headshots/Gordon-dp.jpg';
 import DougImg from '../assets/headshots/Doug.jpg';
 import EricFeltImg from '../assets/headshots/EricFelt.jpg';
@@ -66,11 +66,11 @@ export const ARMS = [
 
 export const SOFTWARE = [
   {
-    id: 'orbtos',
-    name: 'ORBtos',
+    id: 'Flight Software',
+    name: 'Flight Software Suite',
     blurb: 'Complete system for flight and arm control in space',
     long:
-      'ORBtos runs NavIQ (perception) and ASTRA-P (autonomous guidance and control) as native modules, letting any spacecraft bus run the full Orbital Robotics autonomous stack with minimal integration.',
+      'Our Flight Software Suite runs NavIQ (perception) and ASTRA-P (autonomous guidance and control) as native modules, letting any spacecraft bus run the full Orbital Robotics autonomous stack with minimal integration.',
   },
   {
     id: 'naviq',
@@ -103,7 +103,6 @@ export const ASTROBOT = {
 
 export const STATS = [
   { value: 6, label: 'Arms Launched to Space' },
-  { value: 1, label: 'Patent Pending' },
   { value: 10, suffix: '+', label: 'Industry Partners' },
 ];
 
@@ -117,9 +116,10 @@ export const CREW = [
     name: 'Aaron (Cyborg) Borger',
     role: 'Co-Founder & CEO',
     image: AaronImg,
-    credentials: ['Ex–Blue Origin', 'BE-7 Lead', 'Patent Pending'],
+    photoScale: 1.22,
+    credentials: ['Ex–Blue Origin', 'BE-7 Lead'],
     bio:
-      "Leads AI and robotics for autonomous satellite servicing. Formerly lead software engineer for Blue Origin's BE-7 lunar lander engine, where he managed 25 engineers. PhD researcher in aerospace dynamics & controls for the Space Force's SSTI-2 satellite servicing program, with a provisional patent in autonomous satellite servicing.",
+      "Aaron leads AI and robotics for autonomous satellite servicing. As the former lead software engineer for Blue Origin's BE-7 lunar lander engine, he managed 25 engineers to develop and verify flight software. \n\nAaron was also a PhD researcher in aerospace dynamics & controls for the Space Force's SSTI-2 satellite servicing program.",
     linkedin: 'https://www.linkedin.com/in/aaron-borger/',
     email: 'aborger@orbital-robots.com',
   },
@@ -127,9 +127,10 @@ export const CREW = [
     name: 'Riley Mark',
     role: 'Co-Founder & Lead Hardware Engineer',
     image: RileyImg,
+    photoScale: 1.15,
     credentials: ['NASA Payloads', 'MDA'],
     bio:
-      'Leads hardware development efforts including robotic arms, flight electronics, and sensor payloads for on-orbit servicing. Ex electrical engineering lead and software engineering lead of a TRL-9 optical sensor payload for Missile Defense Agency missions. Has flown multiple NASA sub-orbital payloads demonstrating robotic capture with dual 7-axis arms. Holds an active U.S. Secret Clearance.',
+      'Riley leads hardware development efforts including robotic arms, flight electronics, and sensor payloads for on-orbit servicing. He has previously led the full electrical design and integration of a flight-qualified optical detection satellite for Missile Defense Agency test missions and designed embedded biomedical devices at Nou Systems.\n\nHe has additionally flown multiple NASA sub-orbital payloads demonstrating robotic capture with dual 7-axis arms and holds an active U.S. Secret Clearance.',
     linkedin: 'https://www.linkedin.com/in/riley-mark/',
     email: 'rmark@orbital-robots.com',
   },
@@ -137,6 +138,7 @@ export const CREW = [
     name: 'Sohil Pokharna',
     role: 'Co-Founder & Lead Software Engineer',
     image: SohilImg,
+    photoScale: 1.15,
     credentials: ['Ex–Blue Origin', 'AI Lead'],
     bio:
       "Leads flight software, robotic arm control, and the AI/ML systems behind Orbital Robotics' autonomous in-space operations. Previously the single-threaded leader for AI within Engine Avionics Software at Blue Origin, building diagnostics, test automation, and data analysis across rocket engine programs.",
@@ -147,9 +149,10 @@ export const CREW = [
     name: 'William Liu',
     role: 'Chief of Staff',
     image: WillImg,
+    photoScale: 1.22,
     credentials: ['Operations', 'Strategy'],
     bio:
-      'Experienced in operations and strategy across fintech and small-team startups. William has launched multiple products and automated workflows with a data-heavy, people-first approach.',
+      'William holds a combination background in finance, software, aerospace, and small-team startups. He manages all administrative verticals for Orbital Robotics including finance, strategy, and business development.',
     linkedin: 'https://www.linkedin.com/in/liu-william/',
     email: 'wliu@orbital-robots.com',
   },
@@ -157,22 +160,13 @@ export const CREW = [
 
 export const ADVISORS = [
   {
-    name: 'Dr. Gordon Roesler',
+    name: 'Christopher Sembroski',
     role: 'Advisor',
-    image: GordonImg,
-    credentials: ['Ex–DARPA', 'RSGS PM'],
+    image: ChrisImg,
+    credentials: ['Astronaut', 'Inspiration4'],
     bio:
-      'Former DARPA Program Manager for the Robotic Servicing of Geosynchronous Satellites (RSGS) program and founder of Robots in Space LLC. Two decades advancing in-orbit servicing and autonomy across government, academia, and industry.',
-    linkedin: 'https://www.linkedin.com/in/gordon-roesler-8b0a646/',
-  },
-  {
-    name: 'Doug Kohl',
-    role: 'Advisor',
-    image: DougImg,
-    credentials: ['NASA', 'Blue Origin', '40+ yrs'],
-    bio:
-      'Aerospace operations veteran with 40+ years of experience (Space Shuttle to lunar systems). Led mission-critical operations for NASA and Blue Origin, specializing in human-rated spacecraft recovery and readiness.',
-    linkedin: 'https://www.linkedin.com/in/doug-kohl-865553b/',
+      "Commercial astronaut and mission specialist on SpaceX's Inspiration4, the first all-civilian orbital mission. Former Blue Origin avionics engineer and adjunct faculty at Embry-Riddle Aeronautical University.",
+    linkedin: 'https://www.linkedin.com/in/chris-sembroski/',
   },
   {
     name: 'Eric Felt',
@@ -184,13 +178,13 @@ export const ADVISORS = [
     linkedin: 'https://www.linkedin.com/in/eric-felt/',
   },
   {
-    name: 'Christopher Sembroski',
+    name: 'Dr. Gordon Roesler',
     role: 'Advisor',
-    image: ChrisImg,
-    credentials: ['Astronaut', 'Inspiration4'],
+    image: GordonImg,
+    credentials: ['Ex–DARPA', 'RSGS PM'],
     bio:
-      "Commercial astronaut and mission specialist on SpaceX's Inspiration4, the first all-civilian orbital mission. Former Blue Origin avionics engineer and adjunct faculty at Embry-Riddle Aeronautical University.",
-    linkedin: 'https://www.linkedin.com/in/chris-sembroski/',
+      'Former DARPA Program Manager for the Robotic Servicing of Geosynchronous Satellites (RSGS) program and founder of Robots in Space LLC. Two decades advancing in-orbit servicing and autonomy across government, academia, and industry.',
+    linkedin: 'https://www.linkedin.com/in/gordon-roesler-8b0a646/',
   },
   {
     name: 'Taylor Banks',
@@ -200,6 +194,15 @@ export const ADVISORS = [
     bio:
       'Aerospace finance and accounting executive. Former CFO of Systima, leading its acquisition by Karman Space & Defense. Former Blue Origin finance and financial advisor for Relativity Space.',
     linkedin: 'https://www.linkedin.com/in/taylor-banks/',
+  },
+  {
+    name: 'Doug Kohl',
+    role: 'Advisor',
+    image: DougImg,
+    credentials: ['NASA', 'Blue Origin', '40+ yrs'],
+    bio:
+      'Aerospace operations veteran with 40+ years of experience (Space Shuttle to lunar systems). Led mission-critical operations for NASA and Blue Origin, specializing in human-rated spacecraft recovery and readiness.',
+    linkedin: 'https://www.linkedin.com/in/doug-kohl-865553b/',
   },
 ];
 
@@ -214,8 +217,8 @@ export const ADVISORS = [
 // content has no Figma equivalent to reconcile against.
 export const OPEN_ROLES = [
   {
-    id: 'mechanical-engineer',
-    title: 'Mechanical Engineer',
+    id: 'founding-mechanical-engineer',
+    title: 'Founding Mechanical Engineer',
     category: 'Engineering',
     department: 'Hardware',
     location: 'Huntsville, AL',
@@ -274,15 +277,15 @@ export const OPEN_ROLES = [
     tallyEmbedSrc: 'https://tally.so/embed/0QAZzZ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1',
   },
   {
-    id: 'gnc-engineer',
-    title: 'Guidance, Navigation & Control Engineer',
+    id: 'founding-gnc-engineer',
+    title: 'Founding GNC Engineer',
     category: 'Engineering',
     department: 'GNC',
     location: 'Seattle, WA',
     type: 'Full-Time',
-    salary: '$110,000 – $180,000 / year',
+    salary: '$115,000 – $220,000 / year',
     overview:
-      'Orbital Robotics is looking for a founding GNC Engineer who has developed software for robots and/or satellites with backgrounds in orbital mechanics, state estimation, control theory, robot motion planning, computer vision, deep learning, free-flying/free-floating space robot dynamics, and flight software development. You will join a team of world class engineers with experience deploying neural networks on real-world space robot systems.',
+      'Orbital Robotics is hiring a founding GNC Engineer who has developed software for robots and/or satellites with backgrounds in orbital mechanics, state estimation, control theory, robot motion planning, computer vision, deep learning, free-flying/free-floating space robot dynamics, and flight software development. You will join a team of world class engineers with experience deploying neural networks on real-world space robot systems.',
     responsibilities: [
       'Architect, implement, test, and deploy GNC and robotic control algorithms from whiteboard concepts to production flight software.',
       'Build high-fidelity simulations that accurately model vehicle and robot dynamics, sensor noise, and environmental perturbations.',
@@ -353,13 +356,13 @@ export const OPEN_ROLES = [
     tallyEmbedSrc: 'https://tally.so/embed/Gx7qE2?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1',
   },
   {
-    id: 'embedded-software-engineer',
-    title: 'Embedded Software Engineer',
+    id: 'founding-embedded-software-engineer',
+    title: 'Founding Embedded Software Engineer',
     category: 'Engineering',
     department: 'Software',
     location: 'Seattle, WA or Huntsville, AL · Hybrid',
     type: 'Full-Time',
-    salary: '$110,000 – $140,000 / year',
+    salary: '$100,000 – $180,000 / year',
     overview:
       'Orbital Robotics is looking for engineers who have deployed embedded software for safety critical systems at scale. While we are deploying spacecraft with robotic arms to space, any engineer experienced with robotic systems, autonomous vehicles, or avionics will be a great fit.',
     responsibilities: [
@@ -408,7 +411,7 @@ export const NAV_COLUMNS = [
   {
     heading: 'SOFTWARE',
     items: [
-      { label: 'ORBtos System', href: '/products/satellite-os', blurb: SOFTWARE[0].blurb },
+      { label: 'Flight Suite', href: '/products/satellite-os', blurb: SOFTWARE[0].blurb },
     ],
   },
   {
@@ -434,8 +437,8 @@ export const NAV_COLUMNS = [
 // Footer columns, with the HARDWARE/SOFTWARE split corrected.
 // SOFTWARE and HARDWARE mirror the nav's own groupings exactly — sourced from
 // NAV_COLUMNS rather than redefined, so the two can't drift again. They already
-// had: footer SOFTWARE listed all three of ORBtos/ASTRA-P/NavIQ where the nav
-// links only the ORBtos hub page, and footer HARDWARE carried an AstroBot row
+// had: footer SOFTWARE listed all three of Flight Suite/ASTRA-P/NavIQ where the nav
+// links only the Flight Suite hub page, and footer HARDWARE carried an AstroBot row
 // the nav never had. COMPANY is the one column the footer legitimately extends
 // past the nav, with Contact — present on the live site, absent from Figma's nav.
 export const FOOTER_COLUMNS = [

@@ -52,8 +52,8 @@ const OrbSaveHubble = () => (
       <P>
         The mission utilizes a commercially available spacecraft bus combined with Orbital Robotics&rsquo;
         proprietary 1-meter, 7-degree-of-freedom robotic arms and AI-powered guidance and control
-        systems. Our patent-pending neural network approach provides safety-critical autonomous control
-        while maintaining the verification standards required for space missions.
+        systems. Our neural network approach provides safety-critical autonomous control while
+        maintaining the verification standards required for space missions.
       </P>
     </div>
 
@@ -61,8 +61,8 @@ const OrbSaveHubble = () => (
       <H2>Key Technologies</H2>
       <Ul>
         <Li>
-          <strong className="text-orb-text">ASTRA-P Guidance &amp; Control:</strong> Patent-pending
-          AI-powered system designed for highly dynamic scenarios including capturing tumbling spacecraft
+          <strong className="text-orb-text">ASTRA-P Guidance &amp; Control:</strong> AI-powered system
+          designed for highly dynamic scenarios including capturing tumbling spacecraft
         </Li>
         <Li>
           <strong className="text-orb-text">NavIQ Perception:</strong> Vision-based navigation for

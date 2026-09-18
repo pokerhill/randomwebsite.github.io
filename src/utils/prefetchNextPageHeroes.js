@@ -1,5 +1,5 @@
-import AaronImg from '../assets/headshots/aaron.jpg';
-import HiringPhilosophy from '../assets/orb/careers/hiring-philosophy.jpg';
+import AaronImg from '../assets/headshots/Aaron_Borger_2026.jpg';
+import HiringPhilosophy from '../assets/orb/careers/team-in-seattle.jpg';
 
 // Warms the browser cache for the first image a visitor meets on each of the
 // main nav destinations, so clicking through from the landing page does not
@@ -8,7 +8,7 @@ import HiringPhilosophy from '../assets/orb/careers/hiring-philosophy.jpg';
 // visitor is currently looking at.
 // Deliberately excludes the arm page's hero: at ~1MB it was a quarter of the
 // landing page's weight, speculatively, for a page a visitor may never open.
-// These two are a few tens of KB together.
+// AaronImg is ~100KB; HiringPhilosophy is ~400KB.
 const NEXT_PAGE_HEROES = [AaronImg, HiringPhilosophy];
 
 // Only skip on connections where a few megabytes actually costs the visitor

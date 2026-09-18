@@ -120,7 +120,7 @@ export const hardwareProducts = [
         relatedProducts: [
             { id: 'astrap', label: 'Powered by ASTRA-P', context: 'Autonomous guidance and control for the arm.' },
             { id: 'naviq', label: 'Sees with NavIQ', context: 'Real-time computer vision for unprepared RSOs.' },
-            { id: 'satellite-os', label: 'Hosted on ORBtos', context: 'Run on any spacecraft bus via our flight OS.' }
+            { id: 'satellite-os', label: 'Hosted on Flight Software Suite', context: 'Run on any spacecraft bus via our flight OS.' }
         ]
     },
     {
@@ -141,15 +141,15 @@ export const hardwareProducts = [
 export const softwareProducts = [
     {
         id: 'satellite-os',
-        title: "ORBtos",
+        title: "Flight Software Suite",
         category: "Software",
         highlights: ["Bus-agnostic", "Hosts NavIQ + ASTRA-P", "Modular"],
         tagline: "Our flight operating system. Hosts NavIQ and ASTRA-P natively on any spacecraft bus.",
-        description: "ORBtos is our flight software platform. It runs NavIQ (perception) and ASTRA-P (autonomous guidance and control) as native modules, letting any spacecraft bus run the full Orbital Robotics autonomous stack with minimal integration.",
+        description: "Our full flight suite runs NavIQ (perception) and ASTRA-P (autonomous guidance and control) as native modules, letting any spacecraft bus run the full Orbital Robotics autonomous stack with minimal integration.",
         console: true,
         relatedProducts: [
-            { id: 'astrap', label: 'Hosts ASTRA-P', context: 'Autonomous GNC runs natively as an ORBtos module.' },
-            { id: 'naviq', label: 'Hosts NavIQ', context: 'Computer vision runs natively as an ORBtos module.' }
+            { id: 'astrap', label: 'Hosts ASTRA-P', context: 'Autonomous GNC runs natively as a Flight Software Suite module.' },
+            { id: 'naviq', label: 'Hosts NavIQ', context: 'Computer vision runs natively as a Flight Software Suite module.' }
         ],
         whyUs: [
             { title: "Modular by design", description: "Compose mission logic from reusable components instead of building a flight stack from scratch." },
@@ -175,7 +175,7 @@ export const softwareProducts = [
         relatedProducts: [
             { id: 'astrap', label: 'Pairs with ASTRA-P', context: "NavIQ feeds state estimates into ASTRA-P's autonomous GNC for closed-loop RPOC." },
             { id: 'robotic-arms', label: 'Runs on ORA', context: "Hosted natively on the ORA arm family's integrated cameras, with no dedicated vision hardware required." },
-            { id: 'satellite-os', label: 'Hosted on ORBtos', context: 'Runs as a module on ORBtos for spacecraft that need on-orbit perception.' }
+            { id: 'satellite-os', label: 'Hosted on Flight Software Suite', context: 'Runs as a module on Flight Software Suite for spacecraft that need on-orbit perception.' }
         ],
     },
     {
@@ -184,7 +184,7 @@ export const softwareProducts = [
         category: "Software",
         highlights: ["Autonomous GNC", "Lyapunov-verified", "Monte Carlo tested"],
         tagline: "Our autonomous guidance and control software. Takes NavIQ's state estimate and plans the capture maneuver.",
-        description: "ASTRA-P is our guidance and control layer. Given a state estimate from NavIQ, it plans and executes precise approach and capture maneuvers against unprepared satellites and debris. Stability is mathematically verified via Lyapunov analysis and validated across thousands of randomized Monte Carlo scenarios. Hosted natively on ORBtos.",
+        description: "ASTRA-P is our guidance and control layer. Given a state estimate from NavIQ, it plans and executes precise approach and capture maneuvers against unprepared satellites and debris. Stability is mathematically verified via Lyapunov analysis and validated across thousands of randomized Monte Carlo scenarios. Hosted natively on Flight Software Suite.",
         image: PointControlImg,
         demos: [
             { image: MonteCarloGif, caption: "Monte Carlo control runs — randomized capture scenarios validating controller stability." }
@@ -192,7 +192,7 @@ export const softwareProducts = [
         relatedProducts: [
             { id: 'naviq', label: 'Pairs with NavIQ', context: 'NavIQ provides closed-loop state estimation for the controller.' },
             { id: 'robotic-arms', label: 'Drives the arm family', context: 'ORA-native arm control for end-to-end autonomous manipulation.' },
-            { id: 'satellite-os', label: 'Hosted on ORBtos', context: 'Runs as an ORBtos module on the host spacecraft.' }
+            { id: 'satellite-os', label: 'Hosted on Flight Software Suite', context: 'Runs as a Flight Software Suite module on the host spacecraft.' }
         ]
     }
 ];

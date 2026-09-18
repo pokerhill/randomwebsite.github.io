@@ -36,7 +36,7 @@ const OrbPreview = () => (
 
     {/* Stats — canonical values, not the design's placeholder labels. */}
     <section className="px-6 py-20 md:px-10">
-      <div className="mx-auto grid max-w-[1362px] gap-10 sm:grid-cols-3">
+      <div className="mx-auto grid max-w-[1362px] gap-10 sm:grid-cols-2">
         {STATS.map((s) => (
           <div key={s.label}>
             <p className="font-sohne text-orb-h1 text-orb-text">

@@ -6,7 +6,7 @@ import JsonLd from '../../components/JsonLd';
 import AnimatedSection from '../../components/motion/AnimatedSection';
 import StaggerContainer, { itemVariants } from '../../components/motion/StaggerContainer';
 import { Eyebrow, Badge, Button, Breadcrumb, CornerBrackets } from '../../components/ui';
-import OrbtosConsole from '../../components/OrbtosConsole';
+import FlightSuiteConsole from '../../components/FlightSuiteConsole';
 
 // Renders image / single video / cycling video array into a fixed media frame.
 const ProductMedia = ({ image, video, videos, imageFit = 'contain', imageBg = '', videoFit = 'contain', videoBg = '', videoPosition = 'center', controls = false, title, className = '', loading }) => {
@@ -167,7 +167,7 @@ const ProductDetailTemplate = ({ product }) => {
   } = product;
 
   // heroMedia: false keeps card media (image/video) out of the detail hero.
-  // console: true renders the live ORBtos instrument panel as the hero media.
+  // console: true renders the live Flight Suite instrument panel as the hero media.
   const hasMedia = heroMedia !== false && Boolean(product.console || image || video || (videos && videos.length));
   const hasKeyFigures = Boolean(specs && specs.length > 0);
   const hasSpecTable = Boolean(specsTable);
@@ -232,7 +232,7 @@ const ProductDetailTemplate = ({ product }) => {
             {hasMedia && (
               <AnimatedSection direction="right">
                 {product.console ? (
-                  <OrbtosConsole />
+                  <FlightSuiteConsole />
                 ) : (
                   <ProductMedia
                     image={image} video={video} videos={videos}
